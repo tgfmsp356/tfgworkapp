@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TechServe</string>
+
+    <!-- Home screen -->
+    <string name="home_hero_title">Tu socio experto en soluciones de TI personalizadas</string>
+    <string name="home_hero_subtitle">Bienvenido a TechServe. Resolvemos tus desafíos tecnológicos con precisión, eficiencia y el respaldo de un equipo especializado.</string>
+    <string name="register_title">Registrarse</string>
+    <string name="register_desc">Crea tu cuenta personal y accede a un catálogo exclusivo de servicios técnicos profesionales.</string>
+    <string name="register_btn">Empezar ahora</string>
+    <string name="login_card_title">Iniciar Sesión</string>
+    <string name="login_card_desc">Gestiona tus solicitudes actuales, revisa tu historial y contacta con soporte especializado.</string>
+    <string name="login_card_btn">Acceder a mi cuenta</string>
+    <string name="feature_security">Seguridad Garantizada</string>
+    <string name="feature_support">Soporte 24/7 de Alta Velocidad</string>
+    <string name="feature_custom">Soluciones a Medida</string>
+
+    <!-- Bottom nav -->
+    <string name="nav_home">HOME</string>
+    <string name="nav_services">SERVICES</string>
+    <string name="nav_support">SUPPORT</string>
+    <string name="nav_profile">PROFILE</string>
+
+    <!-- Login screen -->
+    <string name="login_welcome">Bienvenido</string>
+    <string name="login_subtitle">Inicie sesión en su cuenta individual para gestionar sus servicios tecnológicos.</string>
+    <string name="login_email_label">CORREO ELECTRÓNICO O USUARIO</string>
+    <string name="login_email_hint">ejemplo@techserve.com</string>
+    <string name="login_password_label">CONTRASEÑA</string>
+    <string name="login_forgot_password">¿Olvidó su contraseña?</string>
+    <string name="login_remember_session">Recordar sesión</string>
+    <string name="login_btn">Acceder al Panel</string>
+    <string name="login_or">O continuar con</string>
+    <string name="login_google">Google</string>
+    <string name="login_no_account">¿No tienes una cuenta? </string>
+    <string name="login_register_link">Regístrate ahora</string>
+    <string name="footer_copyright">© 2024 TechServe IT Solutions. Todos los derechos reservados.</string>
+    <string name="footer_privacy">Privacidad</string>
+    <string name="footer_terms">Términos</string>
+    <string name="footer_help">Ayuda</string>
+    <string name="content_desc_logo">TechServe Logo</string>
+    <string name="content_desc_avatar">Avatar de usuario</string>
+</resources>
