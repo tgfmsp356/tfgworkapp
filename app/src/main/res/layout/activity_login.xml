@@ -38,16 +38,7 @@
             android:textColor="@color/color_text_primary"
             android:paddingStart="8dp" />
 
-        <FrameLayout
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:background="@drawable/bg_avatar_circle">
-            <ImageView
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:src="@drawable/ic_avatar"
-                android:contentDescription="@string/content_desc_avatar" />
-        </FrameLayout>
+
     </LinearLayout>
 
     <!-- ══════════════════════════════════════ -->
@@ -334,65 +325,6 @@
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
-            <!-- ──────────────────────────────── -->
-            <!--             FOOTER              -->
-            <!-- ──────────────────────────────── -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@color/color_footer_bg"
-                android:paddingTop="20dp"
-                android:paddingBottom="24dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/footer_copyright"
-                    android:textSize="12sp"
-                    android:textColor="@color/color_footer_text"
-                    android:textAlignment="center"
-                    android:lineSpacingExtra="2dp"
-                    android:paddingBottom="12dp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/tv_privacy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/footer_privacy"
-                        android:textSize="13sp"
-                        android:textColor="@color/color_text_secondary"
-                        android:paddingEnd="20dp" />
-
-                    <TextView
-                        android:id="@+id/tv_terms"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/footer_terms"
-                        android:textSize="13sp"
-                        android:textColor="@color/color_text_secondary"
-                        android:paddingEnd="20dp" />
-
-                    <TextView
-                        android:id="@+id/tv_help"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/footer_help"
-                        android:textSize="13sp"
-                        android:textColor="@color/color_text_secondary" />
-                </LinearLayout>
-
-            </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
