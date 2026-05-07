@@ -28,4 +28,9 @@
 
     </application>
 
+    <!-- config firebase y sus servicios-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- poder subir imagenes-->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
 </manifest>

@@ -1,13 +1,9 @@
 package com.example.tfg_app.POJOS;
 
 import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "favorito")
 public class Favorito {
 
-    @PrimaryKey
     @NonNull
     private String id = "";
     private String usuario_id;

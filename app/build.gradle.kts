@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -43,4 +44,21 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+
+    // Firebase Auth
+    implementation("com.google.firebase:firebase-auth")
+
+    // Cloud Firestore
+    implementation("com.google.firebase:firebase-firestore")
+
+    // Firebase Storage (para subir imágenes)
+    implementation("com.google.firebase:firebase-storage")
+
+    // Google Sign-In (para login con Google)
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+
+    // Glide para cargar imágenes desde URLs (las fotos de los anuncios y de perfil)
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

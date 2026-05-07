@@ -2,12 +2,8 @@ package com.example.tfg_app.POJOS;
 
 
 import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "usuario")
 public class Usuario {
-    @PrimaryKey
     @NonNull
     private String id = "";
     private String firebase_uid;

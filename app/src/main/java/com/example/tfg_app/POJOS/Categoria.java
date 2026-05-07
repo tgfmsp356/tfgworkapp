@@ -1,24 +1,21 @@
 package com.example.tfg_app.POJOS;
 
 import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "categoria")
 public class Categoria {
-    @PrimaryKey
+
     @NonNull
     private String id = "";
     private String nome;
-    private String incono;
+    private String icono;
 
     public Categoria() {}
 
 
-    public Categoria(@NonNull String id, String nome, String incono) {
+    public Categoria(@NonNull String id, String nome, String icono) {
         this.id = id;
         this.nome = nome;
-        this.incono = incono;
+        this.icono = icono;
     }
 
     @NonNull
@@ -38,11 +35,11 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public String getIncono() {
-        return incono;
+    public String geticono() {
+        return icono;
     }
 
-    public void setIncono(String incono) {
-        this.incono = incono;
+    public void seticono(String icono) {
+        this.icono = icono;
     }
 }

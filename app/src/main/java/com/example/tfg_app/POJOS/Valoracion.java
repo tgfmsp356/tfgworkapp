@@ -1,15 +1,12 @@
 package com.example.tfg_app.POJOS;
 import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
 
-@Entity(tableName = "valoracion")
+
 public class Valoracion {
-    @PrimaryKey
     @NonNull
     private String id = "";
-    private int aniuncio_id;
+    private int anuncio_id;
     private int usuario_id;
     private int valoracion;
     private String comentario;
@@ -18,9 +15,9 @@ public class Valoracion {
 
     public Valoracion() {}
 
-    public Valoracion(@NonNull String id, int aniuncio_id, int usuario_id, int valoracion, String comentario) {
+    public Valoracion(@NonNull String id, int anuncio_id, int usuario_id, int valoracion, String comentario) {
         this.id = id;
-        this.aniuncio_id = aniuncio_id;
+        this.anuncio_id = anuncio_id;
         this.usuario_id = usuario_id;
         this.valoracion = valoracion;
         this.comentario = comentario;
@@ -36,12 +33,12 @@ public class Valoracion {
         this.id = id;
     }
 
-    public int getAniuncio_id() {
-        return aniuncio_id;
+    public int getanuncio_id() {
+        return anuncio_id;
     }
 
-    public void setAniuncio_id(int aniuncio_id) {
-        this.aniuncio_id = aniuncio_id;
+    public void setanuncio_id(int anuncio_id) {
+        this.anuncio_id = anuncio_id;
     }
 
     public int getUsuario_id() {

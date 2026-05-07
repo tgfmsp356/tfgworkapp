@@ -1,15 +1,12 @@
 package com.example.tfg_app.POJOS;
 
 import androidx.annotation.NonNull;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
+import java.util.Date;
 
-@Entity(tableName = "anuncio")
 public class Anuncio {
 
-    @PrimaryKey
     @NonNull
     private String id = "";
     private String id_usuario;
@@ -19,12 +16,12 @@ public class Anuncio {
     private double precio_hora;
     private int tiempo_entrega;
     private boolean activo;
-    private LocalDate fecha_creacion;
+    private Date fecha_creacion;
 
     public Anuncio() {}
 
 
-    public Anuncio(@NonNull String id, String id_usuario, String categoria_id, String titulo, String descripcion, double precio_hora, int tiempo_entrega, boolean activo, LocalDate fecha_creacion) {
+    public Anuncio(@NonNull String id, String id_usuario, String categoria_id, String titulo, String descripcion, double precio_hora, int tiempo_entrega, boolean activo, Date fecha_creacion) {
         this.id = id;
         this.id_usuario = id_usuario;
         this.categoria_id = categoria_id;
@@ -101,11 +98,11 @@ public class Anuncio {
         this.activo = activo;
     }
 
-    public LocalDate getFecha_creacion() {
+    public Date getFecha_creacion() {
         return fecha_creacion;
     }
 
-    public void setFecha_creacion(LocalDate fecha_creacion) {
+    public void setFecha_creacion(Date fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
     }
 }
