@@ -21,6 +21,7 @@
 
     <string name="login_welcome">Bienvenido</string>
     <string name="login_subtitle">Inicie sesión en su cuenta individual para gestionar sus servicios tecnológicos.</string>
+    <string name="register_subtitle">Cree una cuenta individual para empezar a gestionar sus servicios tecnológicos. O contratar alguno de ellos.</string>
     <string name="login_email_label">CORREO ELECTRÓNICO O USUARIO</string>
     <string name="login_email_hint">ejemplo@techserve.com</string>
     <string name="login_password_label">CONTRASEÑA</string>
@@ -37,4 +38,7 @@
     <string name="footer_help">Ayuda</string>
     <string name="content_desc_logo">Logo de TechServe</string>
     <string name="content_desc_avatar">Avatar de usuario</string>
+
+    <string name="register_text">Registrarse</string>
+    <string name="username_text">Nombre de usuario</string>
 </resources>

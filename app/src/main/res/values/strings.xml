@@ -21,6 +21,7 @@
 
     <string name="login_welcome">Welcome</string>
     <string name="login_subtitle">Log in to your individual account to manage your technology services.</string>
+    <string name="register_subtitle">Create an individual account to manage your tech services or explore our new offerings.</string>
     <string name="login_email_label">EMAIL OR USERNAME</string>
     <string name="login_email_hint">example@techserve.com</string>
     <string name="login_password_label">PASSWORD</string>
@@ -37,4 +38,9 @@
     <string name="footer_help">Help</string>
     <string name="content_desc_logo">TechServe Logo</string>
     <string name="content_desc_avatar">User avatar</string>
+
+    <string name="register_text">Sign Up</string>
+    <string name="username_text">username</string>
+
+
 </resources>

@@ -2,56 +2,51 @@ package com.example.tfg_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class RegisterActivity extends AppCompatActivity {
 
-public class LoginActivity extends AppCompatActivity {
+    private EditText etUsername;
     private EditText etMail;
     private EditText etPasswd;
-    private MaterialButton btnLogin;
+    private MaterialButton btnRegister;
     private LinearLayout btnGoogle;
     private TextView tvForgot;
     private TextView tvRegister;
     private FirebaseAuth auth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_register);
 
         //config inicializacion firebase auth
         auth = FirebaseAuth.getInstance();
 
         // iniciar botones y vistas
-        btnLogin = findViewById(R.id.btn_login);
+        btnRegister = findViewById(R.id.btn_register);
         btnGoogle = findViewById(R.id.btn_google);
-        tvForgot = findViewById(R.id.tv_forgot_password);
-        tvRegister = findViewById(R.id.tv_register_link);
         etMail = findViewById(R.id.et_email);
         etPasswd = findViewById(R.id.et_password);
+        etUsername = findViewById(R.id.et_username);
 
+        btnRegister.setOnClickListener(v -> registrarse());
 
-        // Acceder al Panel
-        btnLogin.setOnClickListener(v -> iniciarSesion());
-
-        btnGoogle.setOnClickListener(v -> {
-            Toast.makeText(this, "Continuar con Google",Toast.LENGTH_SHORT).show();
-        });
-
-        //tvForgot.setOnClickListener(v -> recuperarPasswd());
-        tvRegister.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-            startActivity(intent);
-        });
     }
 
     @Override
@@ -64,9 +59,16 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void iniciarSesion(){
+    private void registrarse(){
+        String username = etUsername.getText().toString().trim();
         String email = etMail.getText().toString().trim();
         String password = etPasswd.getText().toString().trim();
+
+        if (username.isEmpty()){
+            etUsername.setError("Username no valido");
+            etUsername.requestFocus();
+            return;
+        }
 
         if (email.isEmpty()){
             etMail.setError("Email no valido");
@@ -79,21 +81,15 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        btnLogin.setEnabled(false);
-
-        auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    btnLogin.setEnabled(true);
-                    if (task.isSuccessful()) {
-                        Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show();
-                        iniciarPantallaInicio();
-                    } else {
-                        String msg = task.getException() != null
-                                ? task.getException().getMessage()
-                                : "Error desconocido";
-                        Toast.makeText(this, "Error: " + msg, Toast.LENGTH_LONG).show();
-                    }
-                });
+        btnRegister.setEnabled(false);
+        auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, task -> {
+           if (task.isSuccessful()){
+               FirebaseUser user = auth.getCurrentUser();
+               iniciarPantallaInicio();
+           } else {
+               Toast.makeText(getApplicationContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+           }
+        });
     }
     private void iniciarPantallaInicio() {
         // De momento volvemos a MainActivity; cuando tengas el panel de usuario, cámbialo
@@ -103,5 +99,3 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 }
-
-
