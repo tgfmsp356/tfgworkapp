@@ -51,9 +51,7 @@
                 android:lineSpacingExtra="4dp"
                 android:paddingBottom="28dp" />
 
-            <!-- ──────────────────────────────── -->
-            <!--        REGISTER CARD            -->
-            <!-- ──────────────────────────────── -->
+
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_register"
                 android:layout_width="match_parent"
@@ -120,9 +118,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- ──────────────────────────────── -->
-            <!--         LOGIN CARD              -->
-            <!-- ──────────────────────────────── -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_login"
                 android:layout_width="match_parent"
@@ -142,7 +137,7 @@
                     android:paddingBottom="28dp"
                     android:gravity="center">
 
-                    <!-- Icon circle -->
+
                     <FrameLayout
                         android:layout_width="76dp"
                         android:layout_height="76dp"

@@ -8,9 +8,6 @@
     android:background="@color/color_background"
     tools:context=".LoginActivity">
 
-    <!-- ══════════════════════════════════════ -->
-    <!--              HEADER                   -->
-    <!-- ══════════════════════════════════════ -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,9 +38,7 @@
 
     </LinearLayout>
 
-    <!-- ══════════════════════════════════════ -->
-    <!--          SCROLLABLE CONTENT           -->
-    <!-- ══════════════════════════════════════ -->
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -59,9 +54,7 @@
             android:paddingTop="8dp"
             android:paddingBottom="0dp">
 
-            <!-- ──────────────────────────────── -->
-            <!--         LOGIN FORM CARD         -->
-            <!-- ──────────────────────────────── -->
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
