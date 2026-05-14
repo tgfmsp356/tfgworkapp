@@ -65,4 +65,8 @@ dependencies {
 
     // Glide para cargar imágenes desde URLs (las fotos de los anuncios y de perfil)
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    //Red, JSON
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.google.code.gson:gson:2.10.1")
 }
