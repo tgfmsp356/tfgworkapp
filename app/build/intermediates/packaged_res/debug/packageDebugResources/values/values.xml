@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="color_background">#EEF0FF</color>
+    <color name="color_border">#E5E7EB</color>
+    <color name="color_bottom_nav_active">#1535C9</color>
+    <color name="color_bottom_nav_inactive">#9CA3AF</color>
+    <color name="color_divider">#E5E7EB</color>
+    <color name="color_footer_bg">#F9FAFB</color>
+    <color name="color_footer_text">#6B7280</color>
+    <color name="color_icon_bg_blue">#EEF0FF</color>
+    <color name="color_icon_bg_gray">#F3F4F6</color>
+    <color name="color_input_bg">#F3F4F6</color>
+    <color name="color_link">#1535C9</color>
+    <color name="color_primary">#1535C9</color>
+    <color name="color_primary_dark">#0E2599</color>
+    <color name="color_primary_light">#5C78F0</color>
+    <color name="color_surface">#FFFFFF</color>
+    <color name="color_text_primary">#1A1A2E</color>
+    <color name="color_text_secondary">#6B7280</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">TechServe</string>
+    <string name="content_desc_avatar">User avatar</string>
+    <string name="content_desc_logo">TechServe Logo</string>
+    <string name="feature_custom">Tailored Solutions</string>
+    <string name="feature_security">Guaranteed Security</string>
+    <string name="feature_support">24/7 High-Speed Support</string>
+    <string name="footer_copyright">© 2026 TechServe IT Solutions. All rights reserved.</string>
+    <string name="footer_help">Help</string>
+    <string name="footer_privacy">Privacy</string>
+    <string name="footer_terms">Terms</string>
+    <string name="gcm_defaultSenderId" translatable="false">1030586723356</string>
+    <string name="google_api_key" translatable="false">AIzaSyBynPT0gKLDNidpplf7qbnM56XPSET-btI</string>
+    <string name="google_app_id" translatable="false">1:1030586723356:android:faa46be5637be0962003d9</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBynPT0gKLDNidpplf7qbnM56XPSET-btI</string>
+    <string name="google_storage_bucket" translatable="false">tfg-app-servicios.firebasestorage.app</string>
+    <string name="home_hero_subtitle">Welcome to TechServe. We solve your technological challenges with precision, efficiency, and the support of a specialized team.</string>
+    <string name="home_hero_title">Your expert partner in custom IT solutions</string>
+    <string name="login_btn">Login to Dashboard</string>
+    <string name="login_card_btn">Access my account</string>
+    <string name="login_card_desc">Manage your current requests, check your history, and contact specialized support.</string>
+    <string name="login_card_title">Log In</string>
+    <string name="login_email_hint">example@techserve.com</string>
+    <string name="login_email_label">EMAIL OR USERNAME</string>
+    <string name="login_forgot_password">Forgot password?</string>
+    <string name="login_google">Google</string>
+    <string name="login_no_account">Don\'t have an account? </string>
+    <string name="login_or">Or continue with</string>
+    <string name="login_password_label">PASSWORD</string>
+    <string name="login_register_link">Register now</string>
+    <string name="login_remember_session">Remember me</string>
+    <string name="login_subtitle">Log in to your individual account to manage your technology services.</string>
+    <string name="login_welcome">Welcome</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_services">Services</string>
+    <string name="nav_support">Support</string>
+    <string name="project_id" translatable="false">tfg-app-servicios</string>
+    <string name="register_btn">Get started now</string>
+    <string name="register_desc">Create your personal account and access an exclusive catalog of professional technical services.</string>
+    <string name="register_subtitle">Create an individual account to manage your tech services or explore our new offerings.</string>
+    <string name="register_text">Sign Up</string>
+    <string name="register_title">Sign Up</string>
+    <string name="username_text">username</string>
+    <style name="Base.Theme.Tfg_app" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/color_background</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="Theme.Tfg_app" parent="Base.Theme.Tfg_app"/>
+</resources>
