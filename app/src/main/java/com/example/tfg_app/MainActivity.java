@@ -3,6 +3,7 @@ package com.example.tfg_app;
 import com.example.tfg_app.R;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout navServices;
     private LinearLayout navProfile;
     private LinearLayout navHome;
+    private LinearLayout navCreate;
+    private LinearLayout navSupport;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +34,19 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        navServices = findViewById(R.id.nav_services);
-        navProfile = findViewById(R.id.nav_profile);
-        navHome = findViewById(R.id.nav_home);
+        View bottomNavView = findViewById(R.id.bottom_nav_include);
+
+        navServices = bottomNavView.findViewById(R.id.nav_services);
+        navProfile = bottomNavView.findViewById(R.id.nav_profile);
+        navHome = bottomNavView.findViewById(R.id.nav_home);
+        navCreate = bottomNavView.findViewById(R.id.nav_create);
+        navSupport = bottomNavView.findViewById(R.id.nav_support);
 
         navServices.setOnClickListener(v -> loadFragment(new ServicesFragment()));
         navProfile.setOnClickListener(v -> loadFragment(new ProfileFragment()));
         navHome.setOnClickListener(v -> loadFragment(new HomeFragment()));
+        navCreate.setOnClickListener(v -> loadFragment(new CreateFragment()));
+        navSupport.setOnClickListener(v -> loadFragment(new SupportFragment()));
 
         if (savedInstanceState == null) {
             loadFragment(new HomeFragment());

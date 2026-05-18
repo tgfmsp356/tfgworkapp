@@ -1,3 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TFG supongo</string>
+    <string name="app_name">TechServe</string>
+
+    <string name="home_hero_title">Your expert partner in custom IT solutions</string>
+    <string name="home_hero_subtitle">Welcome to TechServe. We solve your technological challenges with precision, efficiency, and the support of a specialized team.</string>
+    <string name="register_title">Sign Up</string>
+    <string name="register_desc">Create your personal account and access an exclusive catalog of professional technical services.</string>
+    <string name="register_btn">Get started now</string>
+    <string name="login_card_title">Log In</string>
+    <string name="login_card_desc">Manage your current requests, check your history, and contact specialized support.</string>
+    <string name="login_card_btn">Access my account</string>
+    <string name="feature_security">Guaranteed Security</string>
+    <string name="feature_support">24/7 High-Speed Support</string>
+    <string name="feature_custom">Tailored Solutions</string>
+
+    <string name="nav_home">Inicio</string>
+    <string name="nav_services">Servicios</string>
+    <string name="nav_support">Buzón</string>
+    <string name="nav_create">Crear</string>
+    <string name="nav_profile">Perfil</string>
+
+    <string name="login_welcome">Welcome</string>
+    <string name="login_subtitle">Log in to your individual account to manage your technology services.</string>
+    <string name="register_subtitle">Create an individual account to manage your tech services or explore our new offerings.</string>
+    <string name="login_email_label">EMAIL OR USERNAME</string>
+    <string name="login_email_hint">example@techserve.com</string>
+    <string name="login_password_label">PASSWORD</string>
+    <string name="login_forgot_password">Forgot password?</string>
+    <string name="login_remember_session">Remember me</string>
+    <string name="login_btn">Login to Dashboard</string>
+    <string name="login_or">Or continue with</string>
+    <string name="login_google">Google</string>
+    <string name="login_no_account">Don\'t have an account? </string>
+    <string name="login_register_link">Register now</string>
+    <string name="footer_copyright">© 2026 TechServe IT Solutions. All rights reserved.</string>
+    <string name="footer_privacy">Privacy</string>
+    <string name="footer_terms">Terms</string>
+    <string name="footer_help">Help</string>
+    <string name="content_desc_logo">TechServe Logo</string>
+    <string name="content_desc_avatar">User avatar</string>
+
+    <string name="register_text">Sign Up</string>
+    <string name="username_text">username</string>
+
+
 </resources>

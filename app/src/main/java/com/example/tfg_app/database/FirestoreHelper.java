@@ -50,6 +50,10 @@ public class FirestoreHelper {
         return getDb().collection("categorias").get();
     }
 
+    public static Task<Void> addAnuncio(com.example.tfg_app.POJOS.Anuncio anuncio) {
+        return getDb().collection("anuncios").document(anuncio.getId()).set(anuncio);
+    }
+
     public static CollectionReference getCollection(String collectionName) {
         return getDb().collection(collectionName);
     }

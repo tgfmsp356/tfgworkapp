@@ -7,6 +7,7 @@
     android:background="@color/white"
     android:elevation="10dp">
 
+    <!-- HOME -->
     <LinearLayout
         android:id="@+id/nav_home"
         android:layout_width="0dp"
@@ -46,6 +47,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nav_services"
+            android:textSize="9sp"
+            android:textColor="@color/color_bottom_nav_inactive"
+            android:paddingTop="3dp" />
+    </LinearLayout>
+
+    <!-- CREATE -->
+    <LinearLayout
+        android:id="@+id/nav_create"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_add"
+            android:contentDescription="@string/nav_create" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_create"
             android:textSize="9sp"
             android:textColor="@color/color_bottom_nav_inactive"
             android:paddingTop="3dp" />
@@ -94,6 +117,5 @@
             android:textColor="@color/color_bottom_nav_inactive"
             android:paddingTop="3dp" />
     </LinearLayout>
-
 
 </LinearLayout>
