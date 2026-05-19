@@ -9,10 +9,9 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.example.tfg_app.POJOS.Usuario;
+import com.example.tfg_app.database.FirestoreHelper;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -82,18 +81,50 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         btnRegister.setEnabled(false);
-        auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, task -> {
-           if (task.isSuccessful()){
-               FirebaseUser user = auth.getCurrentUser();
-               iniciarPantallaInicio();
-           } else {
-               Toast.makeText(getApplicationContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-           }
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
+            if (task.isSuccessful()){
+                FirebaseUser user = auth.getCurrentUser();
+                if (user != null) {
+                    guardarUsuarioEnFirestore(user.getUid(), username, email);
+                } else {
+                    btnRegister.setEnabled(true);
+                    Toast.makeText(this, "Error: no se pudo obtener el usuario", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                btnRegister.setEnabled(true);
+                Toast.makeText(getApplicationContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
     }
+
+    private void guardarUsuarioEnFirestore(String uid, String username, String email) {
+        String fechaRegistro = new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault())
+                .format(new java.util.Date());
+
+        Usuario nuevoUsuario = new Usuario(
+                uid,              // id (coincide con el UID de Firebase Auth)
+                uid,              // firebase_uid
+                username,         // nombre (lo usamos como nombre completo provisional)
+                username,         // nombre_usuario
+                email,            // email
+                "",               // foto_perfil (vacío de momento)
+                "",               // descripcion (vacío de momento)
+                fechaRegistro     // fecha_registro
+        );
+
+        FirestoreHelper.addUsuario(nuevoUsuario).addOnCompleteListener(saveTask -> {
+            if (saveTask.isSuccessful()) {
+                iniciarPantallaInicio();
+            } else {
+                btnRegister.setEnabled(true);
+                Toast.makeText(this, "Error al guardar datos: " + saveTask.getException().getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
     private void iniciarPantallaInicio() {
         // De momento volvemos a MainActivity; cuando tengas el panel de usuario, cámbialo
-        Intent intent = new Intent(this, TestActivity.class);
+        Intent intent = new Intent(this, NavActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();

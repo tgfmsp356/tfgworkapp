@@ -2,7 +2,6 @@ package com.example.tfg_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -97,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void iniciarPantallaInicio() {
         // De momento volvemos a MainActivity; cuando tengas el panel de usuario, cámbialo
-        Intent intent = new Intent(this, TestActivity.class);
+        Intent intent = new Intent(this, NavActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();

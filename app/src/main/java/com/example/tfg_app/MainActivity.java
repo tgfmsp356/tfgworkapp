@@ -2,7 +2,6 @@ package com.example.tfg_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -12,10 +11,6 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -57,8 +52,9 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser usuarioAutenticado = auth.getCurrentUser();
 
         if (usuarioAutenticado != null){
-            Intent intent = new Intent(this, TestActivity.class);
+            Intent intent = new Intent(this, NavActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 }

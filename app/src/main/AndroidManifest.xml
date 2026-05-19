@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tfg_app">
         <activity
-            android:name=".TestActivity"
+            android:name=".NavActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
@@ -34,8 +34,6 @@
             android:name=".LoginActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
-
-        <uses-permission android:name="android.permission.INTERNET"/>
     </application>
 
 </manifest>

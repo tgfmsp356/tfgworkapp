@@ -35,11 +35,11 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public String geticono() {
+    public String getIcono() {
         return icono;
     }
 
-    public void seticono(String icono) {
+    public void setIcono(String icono) {
         this.icono = icono;
     }
 }

@@ -19,4 +19,5 @@
     <color name="color_footer_bg">#F9FAFB</color>
     <color name="color_footer_text">#6B7280</color>
     <color name="color_divider">#E5E7EB</color>
+    <color name="color_red">#FF0000</color>
 </resources>

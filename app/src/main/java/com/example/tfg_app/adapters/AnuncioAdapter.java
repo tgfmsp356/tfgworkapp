@@ -1,7 +1,5 @@
 package com.example.tfg_app.adapters;
 
-import com.example.tfg_app.R;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

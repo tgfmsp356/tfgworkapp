@@ -92,6 +92,16 @@
             android:textColor="#666666" />
 
 
+        <Button
+            android:id="@+id/btn_signOut"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:text="@string/logout_btn"
+            android:backgroundTint="@color/color_red"
+            android:textColor="@color/white">
+        </Button>
+
         <TextView
             android:id="@+id/tv_register_date"
             android:layout_width="match_parent"
@@ -101,6 +111,5 @@
             android:textSize="12sp"
             android:textColor="#999999"
             android:gravity="center" />
-
     </LinearLayout>
 </ScrollView>

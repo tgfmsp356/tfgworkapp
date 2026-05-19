@@ -18,8 +18,9 @@
     <string name="nav_services">Servicios</string>
     <string name="nav_support">Soporte</string>
     <string name="nav_profile">Perfil</string>
+    <string name="nav_create">Crear</string>
 
-    <string name="login_welcome">Bienvenido</string>
+    <string name="login_welcome">Bienvenido a TechServe</string>
     <string name="login_subtitle">Inicie sesión en su cuenta individual para gestionar sus servicios tecnológicos.</string>
     <string name="register_subtitle">Cree una cuenta individual para empezar a gestionar sus servicios tecnológicos. O contratar alguno de ellos.</string>
     <string name="login_email_label">CORREO ELECTRÓNICO O USUARIO</string>
@@ -41,4 +42,6 @@
 
     <string name="register_text">Registrarse</string>
     <string name="username_text">Nombre de usuario</string>
+    <string name="logout_btn">Cerrar Sesion</string>
+
 </resources>

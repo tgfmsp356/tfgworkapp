@@ -18,8 +18,9 @@
     <string name="nav_services">Services</string>
     <string name="nav_support">Support</string>
     <string name="nav_profile">Profile</string>
+    <string name="nav_create">Add</string>
 
-    <string name="login_welcome">Welcome</string>
+    <string name="login_welcome">Welcome to TechServe</string>
     <string name="login_subtitle">Log in to your individual account to manage your technology services.</string>
     <string name="register_subtitle">Create an individual account to manage your tech services or explore our new offerings.</string>
     <string name="login_email_label">EMAIL OR USERNAME</string>
@@ -40,7 +41,10 @@
     <string name="content_desc_avatar">User avatar</string>
 
     <string name="register_text">Sign Up</string>
+    <string name="logout_btn">Sign Out</string>
     <string name="username_text">username</string>
+
+
 
 
 </resources>

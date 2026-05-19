@@ -1,9 +1,11 @@
 package com.example.tfg_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +21,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class ProfileFragment extends Fragment {
 
     private TextView tvUsername, tvFullName, tvEmail, tvDescription, tvRegisterDate;
+    private Button btnSignOut;
     private FirebaseAuth auth;
+
 
     public ProfileFragment() {
     }
@@ -34,8 +38,14 @@ public class ProfileFragment extends Fragment {
         tvEmail = view.findViewById(R.id.tv_email);
         tvDescription = view.findViewById(R.id.tv_description);
         tvRegisterDate = view.findViewById(R.id.tv_register_date);
+        btnSignOut = view.findViewById(R.id.btn_signOut);
 
         auth = FirebaseAuth.getInstance();
+
+
+        btnSignOut.setOnClickListener(v->{
+            setBtnSignOut();
+        });
 
         return view;
     }
@@ -77,6 +87,16 @@ public class ProfileFragment extends Fragment {
         }
         if (usuario.getFecha_registro() != null) {
             tvRegisterDate.setText("Miembro desde: " + usuario.getFecha_registro());
+        }
+    }
+
+    private void setBtnSignOut(){
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        if (getActivity() != null) {
+            getActivity().finish();
         }
     }
 }

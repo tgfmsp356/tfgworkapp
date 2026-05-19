@@ -54,6 +54,10 @@ public class FirestoreHelper {
         return getDb().collection("anuncios").document(anuncio.getId()).set(anuncio);
     }
 
+    public static Task<Void> addUsuario(com.example.tfg_app.POJOS.Usuario usuario) {
+        return getDb().collection("usuarios").document(usuario.getId()).set(usuario);
+    }
+
     public static CollectionReference getCollection(String collectionName) {
         return getDb().collection(collectionName);
     }
