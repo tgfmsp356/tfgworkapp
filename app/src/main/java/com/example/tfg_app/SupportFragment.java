@@ -30,7 +30,7 @@ public class SupportFragment extends Fragment {
 
     private static class Message {
         static final int TYPE_USER = 0;
-        static final int TYPE_BOT  = 1;
+        static final int TYPE_BOT = 1;
 
         final String text;
         final int type;
@@ -84,30 +84,34 @@ public class SupportFragment extends Fragment {
         }
 
         @Override
-        public int getItemCount() { return messages.size(); }
+        public int getItemCount() {
+            return messages.size();
+        }
 
         static class VH extends RecyclerView.ViewHolder {
             LinearLayout bubbleContainer;
-            TextView     tvMessage;
-            TextView     tvTime;
+            TextView tvMessage;
+            TextView tvTime;
 
             VH(@NonNull View itemView) {
                 super(itemView);
                 bubbleContainer = itemView.findViewById(R.id.bubble_container);
-                tvMessage       = itemView.findViewById(R.id.tv_message);
-                tvTime          = itemView.findViewById(R.id.tv_time);
+                tvMessage = itemView.findViewById(R.id.tv_message);
+                tvTime = itemView.findViewById(R.id.tv_time);
             }
         }
     }
 
     // ── Fragment ─────────────────────────────────────────────────────────────
 
-    private final List<Message>  messages = new ArrayList<>();
-    private       MessageAdapter adapter;
-    private       RecyclerView   rvMessages;
-    private       EditText       etMessage;
+    private final List<Message> messages = new ArrayList<>();
+    private MessageAdapter adapter;
+    private RecyclerView rvMessages;
+    private EditText etMessage;
 
-    /** Respuestas automáticas simples del bot */
+    /**
+     * Respuestas automáticas simples del bot
+     */
     private static final String[] BOT_RESPONSES = {
             "¡Hola! Estoy aquí para ayudarte. ¿En qué puedo asistirte?",
             "Entiendo tu consulta. Déjame buscarte la mejor solución.",
@@ -130,7 +134,7 @@ public class SupportFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         rvMessages = view.findViewById(R.id.rv_messages);
-        etMessage  = view.findViewById(R.id.et_message);
+        etMessage = view.findViewById(R.id.et_message);
         ImageButton btnSend = view.findViewById(R.id.btn_send);
 
         // RecyclerView
