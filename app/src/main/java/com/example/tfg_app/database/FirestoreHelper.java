@@ -61,4 +61,8 @@ public class FirestoreHelper {
     public static CollectionReference getCollection(String collectionName) {
         return getDb().collection(collectionName);
     }
+
+    public static Task<Void> updateUsuarioField(String uid, String field, Object value) {
+        return getDb().collection("usuarios").document(uid).update(field, value);
+    }
 }

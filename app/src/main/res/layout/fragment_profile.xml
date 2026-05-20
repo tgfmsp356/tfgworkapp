@@ -74,13 +74,33 @@
         </LinearLayout>
 
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sobre mí"
-            android:textStyle="bold"
-            android:layout_marginTop="12dp"
-            android:textSize="14sp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sobre mí"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_edit_description"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_edit"
+                android:contentDescription="Editar descripción"
+                android:padding="2dp"
+                app:tint="@color/color_bottom_nav_active"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_description"
@@ -90,6 +110,7 @@
             android:text="Sin descripción disponible."
             android:textSize="14sp"
             android:textColor="#666666" />
+
 
 
         <Button
