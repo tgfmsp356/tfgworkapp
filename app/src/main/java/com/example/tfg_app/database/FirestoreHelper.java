@@ -6,6 +6,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Map;
+
 public class FirestoreHelper {
     private static FirebaseFirestore db;
 
@@ -64,5 +66,9 @@ public class FirestoreHelper {
 
     public static Task<Void> updateUsuarioField(String uid, String field, Object value) {
         return getDb().collection("usuarios").document(uid).update(field, value);
+    }
+
+    public static Task<Void> updateUsuarioFields(String uid, Map<String, Object> fields) {
+        return getDb().collection("usuarios").document(uid).update(fields);
     }
 }

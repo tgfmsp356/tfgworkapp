@@ -18,15 +18,10 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText etUsername;
-    private EditText etMail;
-    private EditText etPasswd;
+    private EditText etUsername, etNombre, etApellido1, etApellido2, etTelefono, etMail, etPasswd;
     private MaterialButton btnRegister;
     private LinearLayout btnGoogle;
-    private TextView tvForgot;
-    private TextView tvRegister;
     private FirebaseAuth auth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,82 +29,104 @@ public class RegisterActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
 
-        //config inicializacion firebase auth
         auth = FirebaseAuth.getInstance();
 
-        // iniciar botones y vistas
+        etUsername  = findViewById(R.id.et_username);
+        etNombre    = findViewById(R.id.et_nombre);
+        etApellido1 = findViewById(R.id.et_apellido1);
+        etApellido2 = findViewById(R.id.et_apellido2);
+        etTelefono  = findViewById(R.id.et_telefono);
+        etMail      = findViewById(R.id.et_email);
+        etPasswd    = findViewById(R.id.et_password);
         btnRegister = findViewById(R.id.btn_register);
-        btnGoogle = findViewById(R.id.btn_google);
-        etMail = findViewById(R.id.et_email);
-        etPasswd = findViewById(R.id.et_password);
-        etUsername = findViewById(R.id.et_username);
+        btnGoogle   = findViewById(R.id.btn_google);
 
         btnRegister.setOnClickListener(v -> registrarse());
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser usuarioAutenticado = auth.getCurrentUser();
-
-        if (usuarioAutenticado != null){
+        if (auth.getCurrentUser() != null) {
             iniciarPantallaInicio();
         }
     }
 
-    private void registrarse(){
-        String username = etUsername.getText().toString().trim();
-        String email = etMail.getText().toString().trim();
-        String password = etPasswd.getText().toString().trim();
+    private void registrarse() {
+        String username  = etUsername.getText().toString().trim();
+        String nombre    = etNombre.getText().toString().trim();
+        String apellido1 = etApellido1.getText().toString().trim();
+        String apellido2 = etApellido2.getText().toString().trim();
+        String telefono  = etTelefono.getText().toString().trim();
+        String email     = etMail.getText().toString().trim();
+        String password  = etPasswd.getText().toString().trim();
 
-        if (username.isEmpty()){
-            etUsername.setError("Username no valido");
+        if (username.isEmpty()) {
+            etUsername.setError("El nombre de usuario es obligatorio");
             etUsername.requestFocus();
             return;
         }
-
-        if (email.isEmpty()){
-            etMail.setError("Email no valido");
+        if (nombre.isEmpty()) {
+            etNombre.setError("El nombre es obligatorio");
+            etNombre.requestFocus();
+            return;
+        }
+        if (apellido1.isEmpty()) {
+            etApellido1.setError("El primer apellido es obligatorio");
+            etApellido1.requestFocus();
+            return;
+        }
+        if (telefono.isEmpty()) {
+            etTelefono.setError("El teléfono es obligatorio");
+            etTelefono.requestFocus();
+            return;
+        }
+        if (email.isEmpty()) {
+            etMail.setError("El email no es válido");
             etMail.requestFocus();
             return;
         }
-        if (password.isEmpty() || password.length() < 9){
-            etPasswd.setError("La contraseña debe contener almenos 9 caracteres");
+        if (password.isEmpty() || password.length() < 9) {
+            etPasswd.setError("La contraseña debe tener al menos 9 caracteres");
             etPasswd.requestFocus();
             return;
         }
 
         btnRegister.setEnabled(false);
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
-            if (task.isSuccessful()){
+            if (task.isSuccessful()) {
                 FirebaseUser user = auth.getCurrentUser();
                 if (user != null) {
-                    guardarUsuarioEnFirestore(user.getUid(), username, email);
+                    guardarUsuarioEnFirestore(user.getUid(), username, nombre, apellido1, apellido2, telefono, email);
                 } else {
                     btnRegister.setEnabled(true);
                     Toast.makeText(this, "Error: no se pudo obtener el usuario", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 btnRegister.setEnabled(true);
-                Toast.makeText(getApplicationContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void guardarUsuarioEnFirestore(String uid, String username, String email) {
+    private void guardarUsuarioEnFirestore(String uid, String username, String nombre,
+                                           String apellido1, String apellido2,
+                                           String telefono, String email) {
         String fechaRegistro = new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault())
                 .format(new java.util.Date());
 
         Usuario nuevoUsuario = new Usuario(
-                uid,              // id (coincide con el UID de Firebase Auth)
-                uid,              // firebase_uid
-                username,         // nombre (lo usamos como nombre completo provisional)
-                username,         // nombre_usuario
-                email,            // email
-                "",               // foto_perfil (vacío de momento)
-                "",               // descripcion (vacío de momento)
-                fechaRegistro     // fecha_registro
+                uid,          // id
+                uid,          // firebase_uid
+                nombre,       // nombre
+                apellido1,    // apellido1
+                apellido2,    // apellido2 (puede estar vacío)
+                telefono,     // telefono
+                username,     // nombre_usuario
+                email,        // email
+                "",           // foto_perfil
+                "",           // descripcion
+                fechaRegistro // fecha_registro
         );
 
         FirestoreHelper.addUsuario(nuevoUsuario).addOnCompleteListener(saveTask -> {
@@ -123,7 +140,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void iniciarPantallaInicio() {
-        // De momento volvemos a MainActivity; cuando tengas el panel de usuario, cámbialo
         Intent intent = new Intent(this, NavActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

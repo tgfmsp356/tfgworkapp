@@ -23,8 +23,10 @@ public class AgentApiClient {
 
     // ── Cambia esta IP según dónde corra el backend ──────────────────────────
     // Emulador Android Studio  → 10.0.2.2
-    // Dispositivo físico       → IP local de tu PC (ej: 192.168.1.X)
-    private static final String BASE_URL = "http://10.0.2.2:8000";
+    // Dispositivo físico       → IP local del PC (buscarla con ipconfig en WiFi)
+    // IMPORTANTE: arrancar uvicorn con --host 0.0.0.0 para aceptar conexiones externas
+    //   python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    private static final String BASE_URL = "http://192.168.1.43:8000";
     // ─────────────────────────────────────────────────────────────────────────
 
     private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");

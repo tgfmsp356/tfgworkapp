@@ -14,7 +14,7 @@
         android:padding="20dp"
         android:gravity="center_horizontal">
 
-
+        <!-- Foto de perfil -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_profile_pic"
             android:layout_width="120dp"
@@ -26,60 +26,137 @@
             app:strokeWidth="2dp"
             app:strokeColor="@color/color_bottom_nav_active" />
 
-
+        <!-- Nombre de usuario -->
         <TextView
             android:id="@+id/tv_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Nombre de Usuario"
-            android:textSize="22sp"
+            android:layout_marginTop="12dp"
+            android:text="@nombreusuario"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp" />
 
+        <!-- ── Sección: Información personal ── -->
         <TextView
-            android:id="@+id/tv_full_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nombre Completo"
-            android:textSize="16sp"
-            android:textColor="@color/color_bottom_nav_inactive" />
+            android:text="Información personal"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Correo (no editable) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Correo electrónico"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#BBBBBB"
+            app:hintTextColor="#BBBBBB">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:focusable="false"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:textColor="#AAAAAA"
+                android:drawableEnd="@drawable/ic_lock" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Nombre -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Nombre"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName|textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Primer apellido -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Primer apellido"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_apellido1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName|textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Segundo apellido (opcional) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Segundo apellido (opcional)"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_apellido2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName|textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Teléfono -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Teléfono"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_telefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Guardar datos personales -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_guardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar cambios"
+            app:cornerRadius="8dp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#EEEEEE"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="16dp" />
 
-
+        <!-- ── Sección: Sobre mí ── -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="12dp">
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_home"
-                app:tint="@color/color_bottom_nav_active" />
-            <TextView
-                android:id="@+id/tv_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="email@example.com"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginTop="12dp">
+            android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="0dp"
@@ -87,7 +164,8 @@
                 android:layout_weight="1"
                 android:text="Sobre mí"
                 android:textStyle="bold"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textColor="@color/black" />
 
             <ImageView
                 android:id="@+id/iv_edit_description"
@@ -111,26 +189,25 @@
             android:textSize="14sp"
             android:textColor="#666666" />
 
-
-
+        <!-- Cerrar sesión -->
         <Button
             android:id="@+id/btn_signOut"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:text="@string/logout_btn"
             android:backgroundTint="@color/color_red"
-            android:textColor="@color/white">
-        </Button>
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/tv_register_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="Miembro desde: --/--/----"
             android:textSize="12sp"
             android:textColor="#999999"
             android:gravity="center" />
+
     </LinearLayout>
 </ScrollView>
