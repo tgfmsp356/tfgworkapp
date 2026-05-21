@@ -35,8 +35,24 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
     @Override
     public void onBindViewHolder(@NonNull CategoriaViewHolder holder, int position) {
         Categoria categoria = categorias.get(position);
-        holder.tvNombre.setText(categoria.getNome());
-        // Aquí podrías cargar el icono dinámicamente si tuvieras URLs o IDs de recursos
+        holder.tvNombre.setText(categoria.getName());
+
+        // Convertir el nombre del icono (String) al drawable real
+        String nombreIcono = categoria.getIcono();
+        int iconResId = 0;
+        if (nombreIcono != null && !nombreIcono.isEmpty()) {
+            iconResId = holder.itemView.getContext().getResources().getIdentifier(
+                    nombreIcono,
+                    "drawable",
+                    holder.itemView.getContext().getPackageName()
+            );
+        }
+        // Si no se encuentra el icono, usar uno por defecto
+        if (iconResId == 0) {
+            iconResId = R.drawable.ic_category;
+        }
+        holder.ivIcono.setImageResource(iconResId);
+
         holder.itemView.setOnClickListener(v -> listener.onCategoriaClick(categoria));
     }
 

@@ -3,7 +3,9 @@ package com.example.tfg_app.POJOS;
 import androidx.annotation.NonNull;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Anuncio {
 
@@ -17,6 +19,7 @@ public class Anuncio {
     private int tiempo_entrega;
     private boolean activo;
     private Date fecha_creacion;
+    private List<String> imagenes = new ArrayList<>();
 
     public Anuncio() {}
 
@@ -104,6 +107,14 @@ public class Anuncio {
 
     public void setFecha_creacion(Date fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
+    }
+
+    public List<String> getImagenes() {
+        return imagenes;
+    }
+
+    public void setImagenes(List<String> imagenes) {
+        this.imagenes = imagenes;
     }
 }
 

@@ -11,14 +11,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tfg_app.POJOS.Anuncio;
 import com.example.tfg_app.R;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioViewHolder> {
 
-    private List<Anuncio> listaAnuncios;
+    // Lista completa (todos los anuncios) y lista visible (filtrada)
+    private List<Anuncio> listaCompleta;
+    private List<Anuncio> listaFiltrada;
 
     public AnuncioAdapter(List<Anuncio> listaAnuncios) {
-        this.listaAnuncios = listaAnuncios;
+        this.listaCompleta = listaAnuncios;
+        this.listaFiltrada = new ArrayList<>(listaAnuncios);
     }
 
     @NonNull
@@ -30,14 +38,44 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioV
 
     @Override
     public void onBindViewHolder(@NonNull AnuncioViewHolder holder, int position) {
-        Anuncio anuncio = listaAnuncios.get(position);
+        Anuncio anuncio = listaFiltrada.get(position);
         holder.tvTitulo.setText(anuncio.getTitulo());
-        holder.tvPrecio.setText(String.format("%.2f €", anuncio.getPrecio_hora()));
+        holder.tvPrecio.setText(String.format(Locale.getDefault(), "%.2f €", anuncio.getPrecio_hora()));
     }
 
     @Override
     public int getItemCount() {
-        return listaAnuncios.size();
+        return listaFiltrada.size();
+    }
+
+    /**
+     * Filtra la lista por título según el texto introducido.
+     * Si el texto está vacío, muestra todos los anuncios.
+     */
+    public void filtrar(String texto) {
+        listaFiltrada.clear();
+        if (texto == null || texto.trim().isEmpty()) {
+            listaFiltrada.addAll(listaCompleta);
+        } else {
+            String query = texto.toLowerCase(Locale.getDefault()).trim();
+            for (Anuncio anuncio : listaCompleta) {
+                if (anuncio.getTitulo() != null
+                        && anuncio.getTitulo().toLowerCase(Locale.getDefault()).contains(query)) {
+                    listaFiltrada.add(anuncio);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
+
+    /**
+     * Llamar cuando se recargan los anuncios desde Firestore,
+     * para mantener sincronizadas ambas listas.
+     */
+    public void actualizarLista(List<Anuncio> nuevaLista) {
+        this.listaCompleta = new ArrayList<>(nuevaLista);
+        this.listaFiltrada = new ArrayList<>(nuevaLista);
+        notifyDataSetChanged();
     }
 
     public static class AnuncioViewHolder extends RecyclerView.ViewHolder {
@@ -48,5 +86,65 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioV
             tvTitulo = itemView.findViewById(R.id.tv_titulo);
             tvPrecio = itemView.findViewById(R.id.tv_precio);
         }
+    }
+
+    // Constantes para el criterio de ordenación
+    public static final int ORDEN_RECIENTES   = 0;
+    public static final int ORDEN_PRECIO_ASC   = 1;
+    public static final int ORDEN_PRECIO_DESC  = 2;
+
+    /**
+     * Aplica todos los filtros a la vez sobre la lista completa.
+     *
+     * @param texto       Texto de búsqueda por título (puede ser null/vacío).
+     * @param categoriaId ID de categoría a filtrar (null = todas).
+     * @param precioMin   Precio mínimo (null = sin mínimo).
+     * @param precioMax   Precio máximo (null = sin máximo).
+     * @param orden       Criterio de ordenación (ver constantes ORDEN_*).
+     */
+    public void aplicarFiltros(String texto, String categoriaId,
+                               Double precioMin, Double precioMax, int orden) {
+        listaFiltrada.clear();
+
+        String query = (texto == null) ? "" : texto.toLowerCase(Locale.getDefault()).trim();
+
+        for (Anuncio anuncio : listaCompleta) {
+            // Filtro por título
+            boolean coincideTitulo = query.isEmpty()
+                    || (anuncio.getTitulo() != null
+                    && anuncio.getTitulo().toLowerCase(Locale.getDefault()).contains(query));
+
+            // Filtro por categoría
+            boolean coincideCategoria = (categoriaId == null)
+                    || categoriaId.equals(anuncio.getCategoria_id());
+
+            // Filtro por precio
+            boolean coincidePrecioMin = (precioMin == null) || anuncio.getPrecio_hora() >= precioMin;
+            boolean coincidePrecioMax = (precioMax == null) || anuncio.getPrecio_hora() <= precioMax;
+
+            if (coincideTitulo && coincideCategoria && coincidePrecioMin && coincidePrecioMax) {
+                listaFiltrada.add(anuncio);
+            }
+        }
+
+        // Ordenación
+        switch (orden) {
+            case ORDEN_PRECIO_ASC:
+                Collections.sort(listaFiltrada, Comparator.comparingDouble(Anuncio::getPrecio_hora));
+                break;
+            case ORDEN_PRECIO_DESC:
+                Collections.sort(listaFiltrada, (a, b) -> Double.compare(b.getPrecio_hora(), a.getPrecio_hora()));
+                break;
+            case ORDEN_RECIENTES:
+            default:
+                // Más recientes primero (por fecha de creación descendente)
+                Collections.sort(listaFiltrada, (a, b) -> {
+                    if (a.getFecha_creacion() == null || b.getFecha_creacion() == null) return 0;
+                    return b.getFecha_creacion().compareTo(a.getFecha_creacion());
+                });
+                break;
+        }
+
+        notifyDataSetChanged();
     }
 }

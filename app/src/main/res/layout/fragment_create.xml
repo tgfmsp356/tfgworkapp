@@ -64,6 +64,17 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+
+        <!-- Previsualización de fotos elegidas -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_fotos_preview"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            android:orientation="horizontal"
+            android:clipToPadding="false" />
+
         <!-- Información General -->
         <TextView
             android:layout_width="wrap_content"
@@ -175,24 +186,24 @@
 
         </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <!-- Etiqueta Categoría -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoría"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Spinner de categorías -->
+        <Spinner
+            android:id="@+id/spinner_categoria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Categoría"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:startIconDrawable="@drawable/ic_category"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            android:layout_marginBottom="32dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_categoria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/bg_input_field"
+            android:padding="12dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_publicar"

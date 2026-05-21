@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- CATEGORÍA -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoría"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:textColor="#999999"
+        android:layout_marginBottom="6dp" />
+
+    <Spinner
+        android:id="@+id/spinner_categoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp" />
+
+    <!-- RANGO DE PRECIO -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Precio (€/hora)"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:textColor="#999999"
+        android:layout_marginBottom="6dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:layout_marginBottom="20dp">
+
+        <EditText
+            android:id="@+id/et_precio_min"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Mín"
+            android:inputType="numberDecimal"
+            android:layout_marginEnd="8dp" />
+
+        <EditText
+            android:id="@+id/et_precio_max"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Máx"
+            android:inputType="numberDecimal"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- ORDENAR -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ordenar por"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:textColor="#999999"
+        android:layout_marginBottom="6dp" />
+
+    <Spinner
+        android:id="@+id/spinner_orden"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp" />
+
+</LinearLayout>
