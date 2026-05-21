@@ -35,8 +35,8 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
     @Override
     public void onBindViewHolder(@NonNull CategoriaViewHolder holder, int position) {
         Categoria categoria = categorias.get(position);
-        holder.tvNombre.setText(categoria.getNome());
-        // Aquí podrías cargar el icono dinámicamente si tuvieras URLs o IDs de recursos
+        holder.tvNombre.setText(categoria.getName());
+
         holder.itemView.setOnClickListener(v -> listener.onCategoriaClick(categoria));
     }
 

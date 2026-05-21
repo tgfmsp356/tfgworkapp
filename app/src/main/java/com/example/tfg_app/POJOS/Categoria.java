@@ -6,15 +6,15 @@ public class Categoria {
 
     @NonNull
     private String id = "";
-    private String nome;
+    private String name;
     private String icono;
 
     public Categoria() {}
 
 
-    public Categoria(@NonNull String id, String nome, String icono) {
+    public Categoria(@NonNull String id, String name, String icono) {
         this.id = id;
-        this.nome = nome;
+        this.name = name;
         this.icono = icono;
     }
 
@@ -27,12 +27,12 @@ public class Categoria {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String nome) {
+        this.name = name;
     }
 
     public String getIcono() {

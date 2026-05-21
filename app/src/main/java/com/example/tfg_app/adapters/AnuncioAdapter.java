@@ -16,9 +16,15 @@ import java.util.List;
 public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioViewHolder> {
 
     private List<Anuncio> listaAnuncios;
+    private OnAnuncioClickListener listener;
 
-    public AnuncioAdapter(List<Anuncio> listaAnuncios) {
+    public interface OnAnuncioClickListener {
+        void onAnuncioClick(Anuncio anuncio);
+    }
+
+    public AnuncioAdapter(List<Anuncio> listaAnuncios, OnAnuncioClickListener listener) {
         this.listaAnuncios = listaAnuncios;
+        this.listener = listener;
     }
 
     @NonNull
@@ -33,6 +39,7 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioV
         Anuncio anuncio = listaAnuncios.get(position);
         holder.tvTitulo.setText(anuncio.getTitulo());
         holder.tvPrecio.setText(String.format("%.2f €", anuncio.getPrecio_hora()));
+        holder.itemView.setOnClickListener(v -> listener.onAnuncioClick(anuncio));
     }
 
     @Override

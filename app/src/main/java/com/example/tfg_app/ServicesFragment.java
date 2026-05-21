@@ -31,10 +31,10 @@ public class ServicesFragment extends Fragment {
         rvCategorias = view.findViewById(R.id.rv_categorias);
         listaCategorias = new ArrayList<>();
         
-        // Configurar el RecyclerView con un Grid de 2 columnas
+
         adapter = new CategoriaAdapter(listaCategorias, categoria -> {
-            // Acción al pulsar una categoría (por ahora un Toast)
-            Toast.makeText(getContext(), "Has pulsado: " + categoria.getNome(), Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(getContext(), "Has pulsado: " + categoria.getName(), Toast.LENGTH_SHORT).show();
         });
 
         rvCategorias.setLayoutManager(new GridLayoutManager(getContext(), 2));

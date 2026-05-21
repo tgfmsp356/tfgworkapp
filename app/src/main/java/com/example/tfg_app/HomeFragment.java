@@ -42,7 +42,12 @@ public class HomeFragment extends Fragment {
         tvHomeTitle = view.findViewById(R.id.tv_home_title);
 
         listaAnuncios = new ArrayList<>();
-        adapter = new AnuncioAdapter(listaAnuncios);
+        adapter = new AnuncioAdapter(listaAnuncios, anuncio -> {
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, AnuncioDetalleFragment.newInstance(anuncio.getId()))
+                    .addToBackStack(null)
+                    .commit();
+        });
         
         rvAnuncios.setLayoutManager(new GridLayoutManager(getContext(), 2));
         rvAnuncios.setAdapter(adapter);
