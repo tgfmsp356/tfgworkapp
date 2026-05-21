@@ -6,7 +6,7 @@ public class Categoria {
 
     @NonNull
     private String id = "";
-    private String nome;
+    private String name;
     private String icono;
 
     public Categoria() {}
@@ -14,7 +14,7 @@ public class Categoria {
 
     public Categoria(@NonNull String id, String nome, String icono) {
         this.id = id;
-        this.nome = nome;
+        this.name = nome;
         this.icono = icono;
     }
 
@@ -28,11 +28,11 @@ public class Categoria {
     }
 
     public String getNome() {
-        return nome;
+        return name;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.name = nome;
     }
 
     public String getIcono() {
