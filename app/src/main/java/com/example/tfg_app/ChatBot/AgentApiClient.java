@@ -24,7 +24,7 @@ public class AgentApiClient {
     // ── Cambia esta IP según dónde corra el backend ──────────────────────────
     // Emulador Android Studio  → 10.0.2.2
     // Dispositivo físico       → IP local de tu PC (ej: 192.168.1.X)
-    private static final String BASE_URL = "http://10.0.2.2:8000";
+    private static final String BASE_URL = "http://192.168.1.61:8000";
     // ─────────────────────────────────────────────────────────────────────────
 
     private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");

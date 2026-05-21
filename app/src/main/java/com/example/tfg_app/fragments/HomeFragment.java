@@ -1,4 +1,4 @@
-package com.example.tfg_app;
+package com.example.tfg_app.fragments;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tfg_app.POJOS.Anuncio;
 import com.example.tfg_app.POJOS.Categoria;
+import com.example.tfg_app.R;
 import com.example.tfg_app.adapters.AnuncioAdapter;
 import com.example.tfg_app.database.FirestoreHelper;
 import com.google.firebase.auth.FirebaseAuth;
@@ -69,6 +70,8 @@ public class HomeFragment extends Fragment {
         rvAnuncios.setLayoutManager(new GridLayoutManager(getContext(), 2));
         rvAnuncios.setAdapter(adapter);
 
+        adapter.setOnAnuncioClickListener(anuncio -> abrirDetalle(anuncio));
+
         // Filtrado en vivo mientras se escribe
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -82,6 +85,14 @@ public class HomeFragment extends Fragment {
         ivFiltros.setOnClickListener(v -> mostrarDialogoFiltros());
 
         return view;
+    }
+
+    private void abrirDetalle(Anuncio anuncio) {
+        AnuncioDetalleFragment detalle = AnuncioDetalleFragment.newInstance(anuncio.getId());
+        getParentFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, detalle)
+                .addToBackStack(null)   // permite volver atrás con el botón de retroceso
+                .commit();
     }
 
     @Override

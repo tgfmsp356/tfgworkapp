@@ -1,4 +1,4 @@
-package com.example.tfg_app;
+package com.example.tfg_app.fragments;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -17,8 +17,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.tfg_app.activities.MainActivity;
 import com.example.tfg_app.POJOS.Usuario;
-import com.example.tfg_app.database.CloudinaryHelper;
+import com.example.tfg_app.R;
+import com.example.tfg_app.utils.CloudinaryHelper;
 import com.example.tfg_app.database.FirestoreHelper;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.auth.FirebaseAuth;

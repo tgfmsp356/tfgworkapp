@@ -1,4 +1,4 @@
-package com.example.tfg_app;
+package com.example.tfg_app.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.tfg_app.POJOS.Categoria;
+import com.example.tfg_app.R;
 import com.example.tfg_app.adapters.CategoriaAdapter;
 import com.example.tfg_app.database.FirestoreHelper;
 import com.google.firebase.firestore.DocumentSnapshot;

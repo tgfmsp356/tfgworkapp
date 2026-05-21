@@ -1,4 +1,4 @@
-package com.example.tfg_app;
+package com.example.tfg_app.activities;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -13,6 +13,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tfg_app.ChatBot.SupportFragment;
+import com.example.tfg_app.R;
+import com.example.tfg_app.fragments.CreateFragment;
+import com.example.tfg_app.fragments.HomeFragment;
+import com.example.tfg_app.fragments.ProfileFragment;
+import com.example.tfg_app.fragments.ServicesFragment;
 
 public class NavActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.tfg_app;
+package com.example.tfg_app.utils;
 import com.cloudinary.android.MediaManager;
 import android.app.Application;
 import java.util.HashMap;

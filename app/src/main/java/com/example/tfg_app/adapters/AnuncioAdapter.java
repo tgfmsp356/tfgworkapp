@@ -17,6 +17,9 @@ import java.util.Locale;
 
 import java.util.Collections;
 import java.util.Comparator;
+import android.widget.ImageView;
+import com.bumptech.glide.Glide;
+import com.example.tfg_app.database.FirestoreHelper;
 
 public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioViewHolder> {
 
@@ -27,6 +30,17 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioV
     public AnuncioAdapter(List<Anuncio> listaAnuncios) {
         this.listaCompleta = listaAnuncios;
         this.listaFiltrada = new ArrayList<>(listaAnuncios);
+    }
+
+    // Listener para el click en una tarjeta
+    public interface OnAnuncioClickListener {
+        void onAnuncioClick(Anuncio anuncio);
+    }
+
+    private OnAnuncioClickListener clickListener;
+
+    public void setOnAnuncioClickListener(OnAnuncioClickListener listener) {
+        this.clickListener = listener;
     }
 
     @NonNull
@@ -41,6 +55,58 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioV
         Anuncio anuncio = listaFiltrada.get(position);
         holder.tvTitulo.setText(anuncio.getTitulo());
         holder.tvPrecio.setText(String.format(Locale.getDefault(), "%.2f €", anuncio.getPrecio_hora()));
+
+        // Cargar la portada (primera imagen de la lista)
+        if (anuncio.getImagenes() != null && !anuncio.getImagenes().isEmpty()) {
+            String portadaUrl = anuncio.getImagenes().get(0);
+            Glide.with(holder.ivAnuncio.getContext())
+                    .load(portadaUrl)
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_launcher_background)
+                    .into(holder.ivAnuncio);
+        } else {
+            // Sin imágenes: mostrar un fondo por defecto
+            holder.ivAnuncio.setImageResource(R.drawable.ic_launcher_background);
+        }
+
+        // Texto provisional mientras carga
+        holder.tvUsuarioNombre.setText("...");
+        holder.tvCategoria.setText("...");
+
+// Cargar nombre del usuario
+        if (anuncio.getId_usuario() != null) {
+            FirestoreHelper.getUsuario(anuncio.getId_usuario()).addOnSuccessListener(doc -> {
+                if (doc.exists()) {
+                    String nombre = doc.getString("nombre");
+                    holder.tvUsuarioNombre.setText(nombre != null ? nombre : "Usuario");
+                } else {
+                    holder.tvUsuarioNombre.setText("Usuario");
+                }
+            }).addOnFailureListener(e -> holder.tvUsuarioNombre.setText("Usuario"));
+        } else {
+            holder.tvUsuarioNombre.setText("Usuario");
+        }
+
+// Cargar nombre de la categoría
+        if (anuncio.getCategoria_id() != null) {
+            FirestoreHelper.getCategoria(anuncio.getCategoria_id()).addOnSuccessListener(doc -> {
+                if (doc.exists()) {
+                    String nombre = doc.getString("name");
+                    holder.tvCategoria.setText(nombre != null ? nombre : "Sin categoría");
+                } else {
+                    holder.tvCategoria.setText("Sin categoría");
+                }
+            }).addOnFailureListener(e -> holder.tvCategoria.setText("Sin categoría"));
+        } else {
+            holder.tvCategoria.setText("Sin categoría");
+        }
+
+
+        holder.itemView.setOnClickListener(v -> {
+            if (clickListener != null) {
+                clickListener.onAnuncioClick(anuncio);
+            }
+        });
     }
 
     @Override
@@ -79,12 +145,16 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioV
     }
 
     public static class AnuncioViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitulo, tvPrecio;
+        TextView tvTitulo, tvPrecio, tvUsuarioNombre, tvCategoria;
+        ImageView ivAnuncio;
 
         public AnuncioViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitulo = itemView.findViewById(R.id.tv_titulo);
             tvPrecio = itemView.findViewById(R.id.tv_precio);
+            tvUsuarioNombre = itemView.findViewById(R.id.tv_usuario_nombre);
+            tvCategoria = itemView.findViewById(R.id.tv_categoria);
+            ivAnuncio = itemView.findViewById(R.id.iv_anuncio);
         }
     }
 

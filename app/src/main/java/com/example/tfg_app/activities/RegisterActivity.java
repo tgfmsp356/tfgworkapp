@@ -1,4 +1,4 @@
-package com.example.tfg_app;
+package com.example.tfg_app.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tfg_app.POJOS.Usuario;
+import com.example.tfg_app.R;
 import com.example.tfg_app.database.FirestoreHelper;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;

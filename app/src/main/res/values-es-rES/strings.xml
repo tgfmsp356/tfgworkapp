@@ -43,5 +43,7 @@
     <string name="register_text">Registrarse</string>
     <string name="username_text">Nombre de usuario</string>
     <string name="logout_btn">Cerrar Sesion</string>
+    <string name="descripci_n">Descripción</string>
+    <string name="contacto">CONTACTO</string>
 
 </resources>

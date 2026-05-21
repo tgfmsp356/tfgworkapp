@@ -1,4 +1,4 @@
-package com.example.tfg_app;
+package com.example.tfg_app.utils;
 
 public class CloudinaryConfig {
     public static final String CLOUD_NAME = "dbhr4rwje";

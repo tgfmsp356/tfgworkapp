@@ -43,8 +43,8 @@
     <string name="register_text">Sign Up</string>
     <string name="logout_btn">Sign Out</string>
     <string name="username_text">username</string>
-
-
+    <string name="descripci_n">Descripción</string>
+    <string name="contacto">CONTACTO</string>
 
 
 </resources>
