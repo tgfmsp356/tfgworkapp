@@ -136,19 +136,11 @@
                 android:inputType="phone" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Guardar datos personales -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_guardar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Guardar cambios"
-            app:cornerRadius="8dp" />
-
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#EEEEEE"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="16dp" />
 
         <!-- ── Sección: Sobre mí ── -->
@@ -185,9 +177,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
             android:text="Sin descripción disponible."
             android:textSize="14sp"
             android:textColor="#666666" />
+
+        <!-- Guardar datos personales -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_guardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar cambios"
+            app:cornerRadius="8dp" />
 
         <!-- Cerrar sesión -->
         <Button
