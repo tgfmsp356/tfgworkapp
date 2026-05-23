@@ -25,7 +25,10 @@ public class NavActivity extends AppCompatActivity {
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
+            // Alto del teclado (0 cuando está cerrado). En edge-to-edge (targetSdk 35+)
+            // hay que aplicarlo a mano para que el chat no quede tapado por el teclado.
+            Insets ime = insets.getInsets(WindowInsetsCompat.Type.ime());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, ime.bottom);
             return insets;
         });
 
