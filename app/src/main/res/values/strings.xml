@@ -105,5 +105,36 @@
     <!-- soporte -->
     <string name="support_titulo">Support Assistant</string>
     <string name="support_online">● Online</string>
+    <string name="support_hint_mensaje">Type your message...</string>
+    <string name="support_bot_avatar">Bot avatar</string>
+    <string name="support_enviar">Send message</string>
+
+    <!-- hints -->
+    <string name="hint_password_dots">••••••••</string>
+    <string name="hint_nombre">Your name</string>
+    <string name="hint_apellido1">Your first surname</string>
+    <string name="hint_apellido2">Your second surname (optional)</string>
+    <string name="hint_telefono">Your phone number</string>
+    <string name="hint_password_stars">*******</string>
+    <string name="hint_precio_min">Min</string>
+    <string name="hint_precio_max">Max</string>
+    <string name="hint_titulo">Listing title</string>
+    <string name="hint_descripcion">Detailed description</string>
+    <string name="hint_precio">Price (€)</string>
+    <string name="hint_entrega">Delivery (days)</string>
+    <string name="hint_buscar">Search in TechServe</string>
+    <string name="hint_correo">Email address</string>
+    <string name="hint_nombre_perfil">Name</string>
+    <string name="hint_apellido1_perfil">First surname</string>
+    <string name="hint_apellido2_perfil">Second surname (optional)</string>
+    <string name="hint_telefono_perfil">Phone</string>
+
+    <!-- content descriptions -->
+    <string name="cd_email_icon">Email icon</string>
+    <string name="cd_password_icon">Password icon</string>
+    <string name="cd_editar_descripcion">Edit description</string>
+    <string name="cd_imagen_anuncio">Listing image</string>
+    <string name="cd_imagen_servicio">Service image</string>
+    <string name="cd_borrar_anuncio">Delete listing</string>
 
 </resources>

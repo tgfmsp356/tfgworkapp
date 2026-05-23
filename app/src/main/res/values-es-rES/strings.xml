@@ -105,5 +105,36 @@
     <!-- soporte -->
     <string name="support_titulo">Asistente de Soporte</string>
     <string name="support_online">● En línea</string>
+    <string name="support_hint_mensaje">Escribe tu mensaje...</string>
+    <string name="support_bot_avatar">Avatar del bot</string>
+    <string name="support_enviar">Enviar mensaje</string>
+
+    <!-- hints -->
+    <string name="hint_password_dots">••••••••</string>
+    <string name="hint_nombre">Tu nombre</string>
+    <string name="hint_apellido1">Tu primer apellido</string>
+    <string name="hint_apellido2">Tu segundo apellido (opcional)</string>
+    <string name="hint_telefono">Tu número de teléfono</string>
+    <string name="hint_password_stars">*******</string>
+    <string name="hint_precio_min">Mín</string>
+    <string name="hint_precio_max">Máx</string>
+    <string name="hint_titulo">Título del anuncio</string>
+    <string name="hint_descripcion">Descripción detallada</string>
+    <string name="hint_precio">Precio (€)</string>
+    <string name="hint_entrega">Entrega (días)</string>
+    <string name="hint_buscar">Busca en TechServe</string>
+    <string name="hint_correo">Correo electrónico</string>
+    <string name="hint_nombre_perfil">Nombre</string>
+    <string name="hint_apellido1_perfil">Primer apellido</string>
+    <string name="hint_apellido2_perfil">Segundo apellido (opcional)</string>
+    <string name="hint_telefono_perfil">Teléfono</string>
+
+    <!-- content descriptions -->
+    <string name="cd_email_icon">Icono de email</string>
+    <string name="cd_password_icon">Icono de contraseña</string>
+    <string name="cd_editar_descripcion">Editar descripción</string>
+    <string name="cd_imagen_anuncio">Imagen del anuncio</string>
+    <string name="cd_imagen_servicio">Imagen del servicio</string>
+    <string name="cd_borrar_anuncio">Borrar anuncio</string>
 
 </resources>

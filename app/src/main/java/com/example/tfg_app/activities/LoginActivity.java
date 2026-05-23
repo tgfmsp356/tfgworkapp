@@ -18,8 +18,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etMail;
     private EditText etPasswd;
     private MaterialButton btnLogin;
-    private LinearLayout btnGoogle;
-    private TextView tvForgot;
     private TextView tvRegister;
     private FirebaseAuth auth;
 
@@ -28,13 +26,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //config inicializacion firebase auth
         auth = FirebaseAuth.getInstance();
 
-        // iniciar botones y vistas
         btnLogin = findViewById(R.id.btn_login);
-        btnGoogle = findViewById(R.id.btn_google);
-        tvForgot = findViewById(R.id.tv_forgot_password);
         tvRegister = findViewById(R.id.tv_register_link);
         etMail = findViewById(R.id.et_email);
         etPasswd = findViewById(R.id.et_password);
@@ -42,10 +36,6 @@ public class LoginActivity extends AppCompatActivity {
 
         // Acceder al Panel
         btnLogin.setOnClickListener(v -> iniciarSesion());
-
-        btnGoogle.setOnClickListener(v -> {
-            Toast.makeText(this, "Continuar con Google",Toast.LENGTH_SHORT).show();
-        });
 
         //tvForgot.setOnClickListener(v -> recuperarPasswd());
         tvRegister.setOnClickListener(v -> {
@@ -85,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     btnLogin.setEnabled(true);
                     if (task.isSuccessful()) {
-                        Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show();
                         iniciarPantallaInicio();
                     } else {
                         String msg = task.getException() != null
@@ -103,5 +92,3 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 }
-
-

@@ -27,9 +27,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etMail;
     private EditText etPasswd;
     private MaterialButton btnRegister;
-    private LinearLayout btnGoogle;
-    private TextView tvForgot;
-    private TextView tvRegister;
     private FirebaseAuth auth;
 
 
@@ -39,12 +36,9 @@ public class RegisterActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
 
-        //config inicializacion firebase auth
         auth = FirebaseAuth.getInstance();
 
-        // iniciar botones y vistas
         btnRegister = findViewById(R.id.btn_register);
-        btnGoogle = findViewById(R.id.btn_google);
         etMail = findViewById(R.id.et_email);
         etPasswd = findViewById(R.id.et_password);
         etUsername = findViewById(R.id.et_username);

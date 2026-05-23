@@ -32,14 +32,12 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // "Empezar ahora" → Register flow (placeholder)
         MaterialButton btnRegister = findViewById(R.id.btn_register);
         btnRegister.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
 
-        // "Acceder a mi cuenta" → Login screen
         MaterialButton btnLogin = findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);

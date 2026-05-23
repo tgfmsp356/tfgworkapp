@@ -34,20 +34,17 @@ public class NavActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Referencias al bottom nav
         navHome     = findViewById(R.id.nav_home);
         navServices = findViewById(R.id.nav_services);
         navCreate   = findViewById(R.id.nav_create);
         navSupport  = findViewById(R.id.nav_support);
         navProfile  = findViewById(R.id.nav_profile);
 
-        // Fragment inicial: Home
         if (savedInstanceState == null) {
             loadFragment(new HomeFragment());
             updateNavSelection(navHome);
         }
 
-        // Listeners de navegación
         navHome.setOnClickListener(v -> {
             loadFragment(new HomeFragment());
             updateNavSelection(navHome);
@@ -76,9 +73,8 @@ public class NavActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    /**
-     * Marca en azul la pestaña seleccionada y deja las demás en gris.
-     */
+
+    //Gestion de la marca azil en el fragment activo
     private void updateNavSelection(LinearLayout selected) {
         LinearLayout[] items = {navHome, navServices, navCreate, navSupport, navProfile};
         int colorActive   = ContextCompat.getColor(this, R.color.color_bottom_nav_active);
