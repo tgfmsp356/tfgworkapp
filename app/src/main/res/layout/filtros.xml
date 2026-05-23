@@ -2,18 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:orientation="vertical">
 
     <!-- CATEGORÍA -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Categoría"
+        android:layout_marginBottom="6dp"
+        android:text="@string/filtro_categoria"
         android:textStyle="bold"
         android:textSize="13sp"
-        android:textColor="#999999"
-        android:layout_marginBottom="6dp" />
+        android:textColor="#999999" />
 
     <Spinner
         android:id="@+id/spinner_categoria"
@@ -25,47 +25,47 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Precio (€/hora)"
+        android:layout_marginBottom="6dp"
+        android:text="@string/filtro_precio"
         android:textStyle="bold"
         android:textSize="13sp"
-        android:textColor="#999999"
-        android:layout_marginBottom="6dp" />
+        android:textColor="#999999" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:orientation="horizontal"
-        android:baselineAligned="false"
-        android:layout_marginBottom="20dp">
+        android:baselineAligned="false">
 
         <EditText
             android:id="@+id/et_precio_min"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:hint="Mín"
-            android:inputType="numberDecimal"
-            android:layout_marginEnd="8dp" />
+            android:hint="@string/hint_precio_min"
+            android:inputType="numberDecimal" />
 
         <EditText
             android:id="@+id/et_precio_max"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:hint="Máx"
-            android:inputType="numberDecimal"
-            android:layout_marginStart="8dp" />
+            android:hint="@string/hint_precio_max"
+            android:inputType="numberDecimal" />
     </LinearLayout>
 
     <!-- ORDENAR -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ordenar por"
+        android:layout_marginBottom="6dp"
+        android:text="@string/filtro_ordenar"
         android:textStyle="bold"
         android:textSize="13sp"
-        android:textColor="#999999"
-        android:layout_marginBottom="6dp" />
+        android:textColor="#999999" />
 
     <Spinner
         android:id="@+id/spinner_orden"

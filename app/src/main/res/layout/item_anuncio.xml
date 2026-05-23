@@ -29,12 +29,12 @@
                 android:id="@+id/tv_precio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|start"
                 android:layout_margin="12dp"
-                android:background="@drawable/bg_button_gradient"
+                android:layout_gravity="bottom|start"
                 android:paddingHorizontal="12dp"
                 android:paddingVertical="4dp"
-                android:text="0.00 €"
+                android:background="@drawable/bg_button_gradient"
+                android:text="@string/precio_default"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="14sp" />
@@ -43,8 +43,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="12dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_titulo"
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Título del anuncio"
+                android:text="@string/anuncio_titulo_placeholder"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -61,19 +61,19 @@
                 android:id="@+id/tv_usuario_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre Apellidos"
+                android:layout_marginTop="4dp"
+                android:text="@string/nombre_apellidos_placeholder"
                 android:textColor="#3B82F6"
-                android:textSize="13sp"
-                android:layout_marginTop="4dp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/tv_categoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Categoría"
+                android:layout_marginTop="2dp"
+                android:text="@string/categoria_placeholder"
                 android:textColor="#757575"
-                android:textSize="12sp"
-                android:layout_marginTop="2dp" />
+                android:textSize="12sp" />
 
 
         </LinearLayout>

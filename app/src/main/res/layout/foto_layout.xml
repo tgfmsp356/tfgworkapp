@@ -18,25 +18,25 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="top|end"
+        android:padding="2dp"
         android:src="@android:drawable/ic_menu_close_clear_cancel"
-        android:background="#FFFFFF"
-        android:padding="2dp" />
+        android:background="#FFFFFF" />
 
     <!-- Etiqueta "Portada" sobre la primera foto -->
     <TextView
         android:id="@+id/tv_portada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start"
         android:layout_margin="4dp"
-        android:text="Portada"
-        android:textSize="9sp"
-        android:textColor="#FFFFFF"
-        android:background="#3F51B5"
+        android:layout_gravity="bottom|start"
         android:paddingStart="6dp"
         android:paddingEnd="6dp"
         android:paddingTop="2dp"
         android:paddingBottom="2dp"
+        android:text="@string/foto_portada"
+        android:textSize="9sp"
+        android:textColor="#FFFFFF"
+        android:background="#3F51B5"
         android:visibility="gone" />
 
 </FrameLayout>

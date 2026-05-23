@@ -43,13 +43,67 @@
     <string name="register_text">Sign Up</string>
     <string name="logout_btn">Sign Out</string>
     <string name="username_text">username</string>
-    <string name="descripci_n">Descripción</string>
-    <string name="contacto">CONTACTO</string>
+    <string name="descripci_n">Description</string>
+    <string name="contacto">CONTACT</string>
 
     <string name="email_text">Email</string>
 
     <string name="name_text">Name</string>
     <string name="surname_text">Surname</string>
     <string name="phonenumber_text">Phone number</string>
+
+    <!-- registro -->
+    <string name="register_label_nombre">NAME</string>
+    <string name="register_label_apellido1">FIRST SURNAME</string>
+    <string name="register_label_apellido2">SECOND SURNAME (OPTIONAL)</string>
+    <string name="register_label_telefono">PHONE</string>
+    <string name="register_label_email">EMAIL</string>
+    <string name="google_initial">G</string>
+
+    <!-- filtros -->
+    <string name="filtro_categoria">Category</string>
+    <string name="filtro_precio">Price (€/hour)</string>
+    <string name="filtro_ordenar">Sort by</string>
+
+    <!-- foto -->
+    <string name="foto_portada">Cover</string>
+
+    <!-- detalle anuncio -->
+    <string name="precio_default">0.00 €</string>
+    <string name="anuncio_titulo_placeholder">Listing title</string>
+    <string name="nombre_apellidos_placeholder">Name Surname</string>
+    <string name="categoria_placeholder">Category</string>
+    <string name="detalle_descripcion">Description</string>
+    <string name="detalle_descripcion_completa">Full description here...</string>
+
+    <!-- crear anuncio -->
+    <string name="create_pregunta">What do you want to offer?</string>
+    <string name="create_subtitulo">Complete your listing details to reach more clients.</string>
+    <string name="create_anadir_fotos">Add photos</string>
+    <string name="create_info_general">GENERAL INFORMATION</string>
+    <string name="create_detalles_precio">DETAILS AND PRICE</string>
+    <string name="create_publicar">PUBLISH LISTING</string>
+
+    <!-- home -->
+    <string name="home_elegidos">Chosen for you</string>
+
+    <!-- mis anuncios -->
+    <string name="mianuncio_vacio">You haven\'t published any listing yet</string>
+
+    <!-- perfil -->
+    <string name="profile_info_personal">Personal information</string>
+    <string name="profile_sobre_mi">About me</string>
+    <string name="profile_sin_descripcion">No description available.</string>
+    <string name="profile_guardar">Save changes</string>
+    <string name="profile_mis_anuncios">My listings</string>
+    <string name="profile_miembro_desde">Member since: --/--/----</string>
+
+    <!-- servicios -->
+    <string name="services_explorar">Explore Categories</string>
+    <string name="services_subtitulo">Find the professional service you need.</string>
+
+    <!-- soporte -->
+    <string name="support_titulo">Support Assistant</string>
+    <string name="support_online">● Online</string>
 
 </resources>

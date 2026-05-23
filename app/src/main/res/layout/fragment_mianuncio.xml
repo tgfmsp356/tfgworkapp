@@ -31,11 +31,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Todavía no has publicado ningún anuncio"
+            android:padding="24dp"
+            android:text="@string/mianuncio_vacio"
             android:textColor="#999999"
             android:textSize="15sp"
             android:gravity="center"
-            android:padding="24dp"
             android:visibility="gone" />
 
         <ProgressBar

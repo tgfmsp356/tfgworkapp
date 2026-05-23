@@ -8,35 +8,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="¿Qué quieres ofrecer?"
+            android:layout_marginBottom="8dp"
+            android:text="@string/create_pregunta"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginBottom="8dp" />
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Completa los detalles de tu anuncio para llegar a más clientes."
+            android:layout_marginBottom="24dp"
+            android:text="@string/create_subtitulo"
             android:textSize="14sp"
-            android:textColor="#666666"
-            android:layout_marginBottom="24dp" />
+            android:textColor="#666666" />
 
         <!-- Sección de Fotos -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="0dp"
             app:strokeWidth="2dp"
-            app:strokeColor="#E0E0E0"
-            android:layout_marginBottom="24dp">
+            app:strokeColor="#E0E0E0">
 
             <LinearLayout
                 android:id="@+id/btn_add_photo"
@@ -57,10 +57,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Añadir fotos"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/create_anadir_fotos"
                     android:textStyle="bold"
-                    android:textColor="@color/color_bottom_nav_active"
-                    android:layout_marginTop="8dp" />
+                    android:textColor="@color/color_bottom_nav_active" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -79,24 +79,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="INFORMACIÓN GENERAL"
+            android:layout_marginBottom="12dp"
+            android:text="@string/create_info_general"
             android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="#999999"
-            android:letterSpacing="0.1"
-            android:layout_marginBottom="12dp" />
+            android:letterSpacing="0.1" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Título del anuncio"
+            android:layout_marginBottom="16dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/hint_titulo"
             app:startIconDrawable="@drawable/ic_title"
             app:boxCornerRadiusTopStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            android:layout_marginBottom="16dp">
+            app:boxCornerRadiusBottomEnd="12dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_titulo"
@@ -108,14 +108,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Descripción detallada"
+            android:layout_marginBottom="24dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/hint_descripcion"
             app:startIconDrawable="@drawable/ic_description"
             app:boxCornerRadiusTopStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            android:layout_marginBottom="24dp">
+            app:boxCornerRadiusBottomEnd="12dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_descripcion"
@@ -130,32 +130,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DETALLES Y PRECIO"
+            android:layout_marginBottom="12dp"
+            android:text="@string/create_detalles_precio"
             android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="#999999"
-            android:letterSpacing="0.1"
-            android:layout_marginBottom="12dp" />
+            android:letterSpacing="0.1" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:orientation="horizontal"
-            android:baselineAligned="false"
-            android:layout_marginBottom="16dp">
+            android:baselineAligned="false">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:hint="Precio (€)"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="@string/hint_precio"
                 app:startIconDrawable="@drawable/ic_euro"
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusBottomEnd="12dp"
-                android:layout_marginEnd="8dp">
+                app:boxCornerRadiusBottomEnd="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_precio"
@@ -167,15 +167,15 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:hint="Entrega (días)"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="@string/hint_entrega"
                 app:startIconDrawable="@drawable/ic_time"
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
-                app:boxCornerRadiusBottomEnd="12dp"
-                android:layout_marginStart="8dp">
+                app:boxCornerRadiusBottomEnd="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_tiempo"
@@ -190,11 +190,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Categoría"
-            android:textSize="12sp"
-            android:textColor="#666666"
             android:layout_marginStart="4dp"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="4dp"
+            android:text="@string/categoria_placeholder"
+            android:textSize="12sp"
+            android:textColor="#666666" />
 
         <!-- Spinner de categorías -->
         <Spinner
@@ -202,30 +202,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
-            android:background="@drawable/bg_input_field"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:background="@drawable/bg_input_field" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_publicar"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:text="PUBLICAR ANUNCIO"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/create_publicar"
             android:gravity="center"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:letterSpacing="0.05"
-            app:cornerRadius="16dp"
-            app:icon="@drawable/ic_send"
-            app:iconGravity="textStart"
-            app:iconPadding="12dp"
-            app:iconTint="@color/white"
             android:elevation="8dp"
             android:stateListAnimator="@null"
             android:backgroundTint="@null"
             android:background="@drawable/bg_button_gradient"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="32dp" />
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_send"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp"
+            app:iconTint="@color/white" />
 
         <View
             android:layout_width="match_parent"

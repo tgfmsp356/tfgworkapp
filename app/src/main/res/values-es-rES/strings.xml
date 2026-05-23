@@ -2,36 +2,36 @@
 <resources>
     <string name="app_name">TechServe</string>
 
-    <string name="home_hero_title">Tu socio experto en soluciones de TI personalizadas</string>
-    <string name="home_hero_subtitle">Bienvenido a TechServe. Resolvemos tus desafíos tecnológicos con precisión, eficiencia y el respaldo de un equipo especializado.</string>
-    <string name="register_title">Registrarse</string>
+    <string name="home_hero_title">Tu socio experto en soluciones IT a medida</string>
+    <string name="home_hero_subtitle">Bienvenido a TechServe. Resolvemos tus retos tecnológicos con precisión, eficiencia y el apoyo de un equipo especializado.</string>
+    <string name="register_title">Regístrate</string>
     <string name="register_desc">Crea tu cuenta personal y accede a un catálogo exclusivo de servicios técnicos profesionales.</string>
     <string name="register_btn">Empezar ahora</string>
-    <string name="login_card_title">Iniciar Sesión</string>
-    <string name="login_card_desc">Gestiona tus solicitudes actuales, revisa tu historial y contacta con soporte especializado.</string>
+    <string name="login_card_title">Iniciar sesión</string>
+    <string name="login_card_desc">Gestiona tus solicitudes actuales, consulta tu historial y contacta con soporte especializado.</string>
     <string name="login_card_btn">Acceder a mi cuenta</string>
-    <string name="feature_security">Seguridad Garantizada</string>
-    <string name="feature_support">Soporte 24/7 de Alta Velocidad</string>
-    <string name="feature_custom">Soluciones a Medida</string>
+    <string name="feature_security">Seguridad garantizada</string>
+    <string name="feature_support">Soporte rápido 24/7</string>
+    <string name="feature_custom">Soluciones a medida</string>
 
     <string name="nav_home">Inicio</string>
     <string name="nav_services">Servicios</string>
     <string name="nav_support">Soporte</string>
     <string name="nav_profile">Perfil</string>
-    <string name="nav_create">Crear</string>
+    <string name="nav_create">Añadir</string>
 
     <string name="login_welcome">Bienvenido a TechServe</string>
-    <string name="login_subtitle">Inicie sesión en su cuenta individual para gestionar sus servicios tecnológicos.</string>
-    <string name="register_subtitle">Cree una cuenta individual para empezar a gestionar sus servicios tecnológicos. O contratar alguno de ellos.</string>
-    <string name="login_email_label">CORREO ELECTRÓNICO O USUARIO</string>
+    <string name="login_subtitle">Inicia sesión en tu cuenta individual para gestionar tus servicios tecnológicos.</string>
+    <string name="register_subtitle">Crea una cuenta individual para gestionar tus servicios tecnológicos o explorar nuestras novedades.</string>
+    <string name="login_email_label">EMAIL O USUARIO</string>
     <string name="login_email_hint">ejemplo@techserve.com</string>
     <string name="login_password_label">CONTRASEÑA</string>
-    <string name="login_forgot_password">¿Olvidó su contraseña?</string>
-    <string name="login_remember_session">Recordar sesión</string>
-    <string name="login_btn">Acceder al Panel</string>
-    <string name="login_or">O continuar con</string>
+    <string name="login_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="login_remember_session">Recordarme</string>
+    <string name="login_btn">Entrar al panel</string>
+    <string name="login_or">O continúa con</string>
     <string name="login_google">Google</string>
-    <string name="login_no_account">¿No tienes una cuenta? </string>
+    <string name="login_no_account">¿No tienes cuenta? </string>
     <string name="login_register_link">Regístrate ahora</string>
     <string name="footer_copyright">© 2026 TechServe IT Solutions. Todos los derechos reservados.</string>
     <string name="footer_privacy">Privacidad</string>
@@ -40,20 +40,70 @@
     <string name="content_desc_logo">Logo de TechServe</string>
     <string name="content_desc_avatar">Avatar de usuario</string>
 
-    <string name="register_text">Registrarse</string>
-    <string name="username_text">Nombre de usuario</string>
-    <string name="logout_btn">Cerrar Sesion</string>
+    <string name="register_text">Regístrate</string>
+    <string name="logout_btn">Cerrar sesión</string>
+    <string name="username_text">usuario</string>
     <string name="descripci_n">Descripción</string>
     <string name="contacto">CONTACTO</string>
 
-
-    <string name="email_text">Correo Electronico</string>
-
+    <string name="email_text">Email</string>
 
     <string name="name_text">Nombre</string>
-    <string name="surname_text">Apellido</string>
+    <string name="surname_text">Apellidos</string>
     <string name="phonenumber_text">Teléfono</string>
 
+    <!-- registro -->
+    <string name="register_label_nombre">NOMBRE</string>
+    <string name="register_label_apellido1">PRIMER APELLIDO</string>
+    <string name="register_label_apellido2">SEGUNDO APELLIDO (OPCIONAL)</string>
+    <string name="register_label_telefono">TELÉFONO</string>
+    <string name="register_label_email">EMAIL</string>
+    <string name="google_initial">G</string>
 
+    <!-- filtros -->
+    <string name="filtro_categoria">Categoría</string>
+    <string name="filtro_precio">Precio (€/hora)</string>
+    <string name="filtro_ordenar">Ordenar por</string>
+
+    <!-- foto -->
+    <string name="foto_portada">Portada</string>
+
+    <!-- detalle anuncio -->
+    <string name="precio_default">0.00 €</string>
+    <string name="anuncio_titulo_placeholder">Título del anuncio</string>
+    <string name="nombre_apellidos_placeholder">Nombre Apellidos</string>
+    <string name="categoria_placeholder">Categoría</string>
+    <string name="detalle_descripcion">Descripción</string>
+    <string name="detalle_descripcion_completa">Descripción completa aquí...</string>
+
+    <!-- crear anuncio -->
+    <string name="create_pregunta">¿Qué quieres ofrecer?</string>
+    <string name="create_subtitulo">Completa los detalles de tu anuncio para llegar a más clientes.</string>
+    <string name="create_anadir_fotos">Añadir fotos</string>
+    <string name="create_info_general">INFORMACIÓN GENERAL</string>
+    <string name="create_detalles_precio">DETALLES Y PRECIO</string>
+    <string name="create_publicar">PUBLICAR ANUNCIO</string>
+
+    <!-- home -->
+    <string name="home_elegidos">Elegidos para ti</string>
+
+    <!-- mis anuncios -->
+    <string name="mianuncio_vacio">Todavía no has publicado ningún anuncio</string>
+
+    <!-- perfil -->
+    <string name="profile_info_personal">Información personal</string>
+    <string name="profile_sobre_mi">Sobre mí</string>
+    <string name="profile_sin_descripcion">Sin descripción disponible.</string>
+    <string name="profile_guardar">Guardar cambios</string>
+    <string name="profile_mis_anuncios">Mis anuncios</string>
+    <string name="profile_miembro_desde">Miembro desde: --/--/----</string>
+
+    <!-- servicios -->
+    <string name="services_explorar">Explorar Categorías</string>
+    <string name="services_subtitulo">Encuentra el servicio profesional que necesitas.</string>
+
+    <!-- soporte -->
+    <string name="support_titulo">Asistente de Soporte</string>
+    <string name="support_online">● En línea</string>
 
 </resources>

@@ -12,24 +12,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="16dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="16dp"
         android:background="?attr/selectableItemBackground">
 
         <ImageView
             android:id="@+id/iv_categoria_icono"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
             android:src="@drawable/ic_category"
-            app:tint="@color/color_bottom_nav_active"
-            android:layout_marginBottom="8dp" />
+            app:tint="@color/color_bottom_nav_active" />
 
         <TextView
             android:id="@+id/tv_categoria_nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Categoría"
+            android:text="@string/categoria_placeholder"
             android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="@color/black"
