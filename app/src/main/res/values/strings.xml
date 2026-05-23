@@ -46,5 +46,10 @@
     <string name="descripci_n">Descripción</string>
     <string name="contacto">CONTACTO</string>
 
+    <string name="email_text">Email</string>
+
+    <string name="name_text">Name</string>
+    <string name="surname_text">Surname</string>
+    <string name="phonenumber_text">Phone number</string>
 
 </resources>

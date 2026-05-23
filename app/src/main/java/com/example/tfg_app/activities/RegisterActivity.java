@@ -20,6 +20,10 @@ import com.google.firebase.auth.FirebaseUser;
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText etUsername;
+    private EditText etNombre;
+    private EditText etApellido1;
+    private EditText etApellido2;
+    private EditText etTelefono;
     private EditText etMail;
     private EditText etPasswd;
     private MaterialButton btnRegister;
@@ -44,6 +48,10 @@ public class RegisterActivity extends AppCompatActivity {
         etMail = findViewById(R.id.et_email);
         etPasswd = findViewById(R.id.et_password);
         etUsername = findViewById(R.id.et_username);
+        etNombre = findViewById(R.id.et_nombre);
+        etApellido1 = findViewById(R.id.et_apellido1);
+        etApellido2 = findViewById(R.id.et_apellido2);
+        etTelefono = findViewById(R.id.et_telefono);
 
         btnRegister.setOnClickListener(v -> registrarse());
 
@@ -61,6 +69,10 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void registrarse(){
         String username = etUsername.getText().toString().trim();
+        String nombre = etNombre.getText().toString().trim();
+        String apellido1 = etApellido1.getText().toString().trim();
+        String apellido2 = etApellido2.getText().toString().trim();
+        String telefono = etTelefono.getText().toString().trim();
         String email = etMail.getText().toString().trim();
         String password = etPasswd.getText().toString().trim();
 
@@ -79,6 +91,22 @@ public class RegisterActivity extends AppCompatActivity {
             etPasswd.setError("La contraseña debe contener almenos 9 caracteres");
             etPasswd.requestFocus();
             return;
+        }if (nombre.isEmpty()){
+            etNombre.setError("El nombre no puede estar vacío");
+            etNombre.requestFocus();
+            return;
+        }
+
+        if (apellido1.isEmpty()){
+            etApellido1.setError("El primer apellido no puede estar vacío");
+            etApellido1.requestFocus();
+            return;
+        }
+
+        if (telefono.isEmpty()){
+            etTelefono.setError("El teléfono no puede estar vacío");
+            etTelefono.requestFocus();
+            return;
         }
 
         btnRegister.setEnabled(false);
@@ -86,7 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
             if (task.isSuccessful()){
                 FirebaseUser user = auth.getCurrentUser();
                 if (user != null) {
-                    guardarUsuarioEnFirestore(user.getUid(), username, email);
+                    guardarUsuarioEnFirestore(user.getUid(), username, nombre, apellido1, apellido2, telefono, email);
                 } else {
                     btnRegister.setEnabled(true);
                     Toast.makeText(this, "Error: no se pudo obtener el usuario", Toast.LENGTH_SHORT).show();
@@ -98,20 +126,27 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void guardarUsuarioEnFirestore(String uid, String username, String email) {
+    private void guardarUsuarioEnFirestore(String uid, String username, String nombre,
+                                           String apellido1, String apellido2,
+                                           String telefono, String email) {
         String fechaRegistro = new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault())
                 .format(new java.util.Date());
 
         Usuario nuevoUsuario = new Usuario(
                 uid,              // id (coincide con el UID de Firebase Auth)
                 uid,              // firebase_uid
-                username,         // nombre (lo usamos como nombre completo provisional)
+                nombre,           // nombre
                 username,         // nombre_usuario
                 email,            // email
                 "",               // foto_perfil (vacío de momento)
                 "",               // descripcion (vacío de momento)
                 fechaRegistro     // fecha_registro
         );
+
+        // Campos nuevos: los seteamos aparte para no tocar el constructor
+        nuevoUsuario.setApellido1(apellido1);
+        nuevoUsuario.setApellido2(apellido2);
+        nuevoUsuario.setTelefono(telefono);
 
         FirestoreHelper.addUsuario(nuevoUsuario).addOnCompleteListener(saveTask -> {
             if (saveTask.isSuccessful()) {

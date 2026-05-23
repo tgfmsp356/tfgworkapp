@@ -54,6 +54,16 @@ public class HomeFragment extends Fragment {
     public HomeFragment() {
     }
 
+    private static final String ARG_CATEGORIA_ID = "categoria_id";
+
+    public static HomeFragment newInstance(String categoriaId) {
+        HomeFragment fragment = new HomeFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_CATEGORIA_ID, categoriaId);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,10 +94,16 @@ public class HomeFragment extends Fragment {
         // Botón de filtros
         ivFiltros.setOnClickListener(v -> mostrarDialogoFiltros());
 
+        // Si venimos desde ServicesFragment con una categoría preseleccionada
+        if (getArguments() != null) {
+            filtroCategoriaId = getArguments().getString(ARG_CATEGORIA_ID, null);
+        }
+
         return view;
     }
 
     private void abrirDetalle(Anuncio anuncio) {
+        android.util.Log.d("HOME_DEBUG", "abrirDetalle id = [" + anuncio.getId() + "] titulo = " + anuncio.getTitulo());
         AnuncioDetalleFragment detalle = AnuncioDetalleFragment.newInstance(anuncio.getId());
         getParentFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, detalle)

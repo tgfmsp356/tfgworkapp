@@ -65,4 +65,12 @@ public class FirestoreHelper {
     public static Task<Void> updateUsuarioField(String uid, String field, Object value) {
         return getDb().collection("usuarios").document(uid).update(field, value);
     }
+
+    public static Task<Void> deleteAnuncio(String anuncioId) {
+        return getDb().collection("anuncios").document(anuncioId).delete();
+    }
+
+    public static Task<QuerySnapshot> getAnunciosPorUsuario(String uid) {
+        return getDb().collection("anuncios").whereEqualTo("id_usuario", uid).get();
+    }
 }

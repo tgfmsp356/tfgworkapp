@@ -17,6 +17,7 @@ import com.example.tfg_app.database.FirestoreHelper;
 import com.google.firebase.firestore.DocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
+import com.example.tfg_app.fragments.HomeFragment;
 
 public class ServicesFragment extends Fragment {
 
@@ -34,8 +35,13 @@ public class ServicesFragment extends Fragment {
         
         // Configurar el RecyclerView con un Grid de 2 columnas
         adapter = new CategoriaAdapter(listaCategorias, categoria -> {
-            // Acción al pulsar una categoría (por ahora un Toast)
-            Toast.makeText(getContext(), "Has pulsado: " + categoria.getName(), Toast.LENGTH_SHORT).show();
+            // Abrir HomeFragment ya filtrado por esta categoría.
+            // OJO: no tocamos la selección del bottom nav, así "Services" sigue marcado.
+            HomeFragment home = HomeFragment.newInstance(categoria.getId());
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, home)
+                    .addToBackStack(null)   // permite volver a la lista de categorías con el botón atrás
+                    .commit();
         });
 
         rvCategorias.setLayoutManager(new GridLayoutManager(getContext(), 2));

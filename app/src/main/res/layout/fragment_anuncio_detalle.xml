@@ -129,13 +129,6 @@
                             android:letterSpacing="0.05" />
                     </LinearLayout>
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_chat"
-                        style="@style/Widget.Material3.Button.TonalButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Chat"
-                        app:cornerRadius="20dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

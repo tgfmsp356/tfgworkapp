@@ -31,8 +31,10 @@ import androidx.appcompat.app.AlertDialog;
 
 public class ProfileFragment extends Fragment {
 
-    private TextView tvUsername, tvFullName, tvEmail, tvDescription, tvRegisterDate;
+    private TextView tvUsername, tvDescription, tvRegisterDate;
+    private EditText etEmail, etNombre, etApellido1, etApellido2, etTelefono;
     private Button btnSignOut;
+    private com.google.android.material.button.MaterialButton btnGuardar, btnMisAnuncios;
     private ShapeableImageView ivProfilePic;
     private ImageView ivEditDescription;
     private FirebaseAuth auth;
@@ -53,10 +55,14 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         tvUsername = view.findViewById(R.id.tv_username);
-        tvFullName = view.findViewById(R.id.tv_full_name);
-        tvEmail = view.findViewById(R.id.tv_email);
+        etEmail = view.findViewById(R.id.et_email);
+        etNombre = view.findViewById(R.id.et_nombre);
+        etApellido1 = view.findViewById(R.id.et_apellido1);
+        etApellido2 = view.findViewById(R.id.et_apellido2);
+        etTelefono = view.findViewById(R.id.et_telefono);
         tvRegisterDate = view.findViewById(R.id.tv_register_date);
         btnSignOut = view.findViewById(R.id.btn_signOut);
+        btnGuardar = view.findViewById(R.id.btn_guardar);
         ivProfilePic = view.findViewById(R.id.iv_profile_pic);
         ivEditDescription = view.findViewById(R.id.iv_edit_description);
         tvDescription = view.findViewById(R.id.tv_description);
@@ -67,8 +73,63 @@ public class ProfileFragment extends Fragment {
 
         ivProfilePic.setOnClickListener(v -> abrirGaleria());
         ivEditDescription.setOnClickListener(v -> mostrarDialogoEditarDescripcion());
+        btnGuardar.setOnClickListener(v -> guardarCambios());
+
+        btnMisAnuncios = view.findViewById(R.id.btn_mis_anuncios);
+
+        btnMisAnuncios.setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new MiAnuncioFragment())
+                    .addToBackStack(null)
+                    .commit();
+        });
 
         return view;
+    }
+
+    private void guardarCambios() {
+        FirebaseUser user = auth.getCurrentUser();
+        if (user == null) return;
+
+        String nombre = etNombre.getText().toString().trim();
+        String apellido1 = etApellido1.getText().toString().trim();
+        String apellido2 = etApellido2.getText().toString().trim();
+        String telefono = etTelefono.getText().toString().trim();
+
+        // Validaciones: el segundo apellido es opcional
+        if (nombre.isEmpty()) {
+            etNombre.setError("El nombre no puede estar vacío");
+            etNombre.requestFocus();
+            return;
+        }
+        if (apellido1.isEmpty()) {
+            etApellido1.setError("El primer apellido no puede estar vacío");
+            etApellido1.requestFocus();
+            return;
+        }
+        if (telefono.isEmpty()) {
+            etTelefono.setError("El teléfono no puede estar vacío");
+            etTelefono.requestFocus();
+            return;
+        }
+
+        // Guardar los cuatro campos a la vez en Firestore
+        java.util.Map<String, Object> datos = new java.util.HashMap<>();
+        datos.put("nombre", nombre);
+        datos.put("apellido1", apellido1);
+        datos.put("apellido2", apellido2);
+        datos.put("telefono", telefono);
+
+        btnGuardar.setEnabled(false);
+        FirestoreHelper.getCollection("usuarios").document(user.getUid()).update(datos)
+                .addOnSuccessListener(aVoid -> {
+                    btnGuardar.setEnabled(true);
+                    Toast.makeText(getContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    btnGuardar.setEnabled(true);
+                    Toast.makeText(getContext(), "Error al guardar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
 
     private void mostrarDialogoEditarDescripcion() {
@@ -149,8 +210,11 @@ public class ProfileFragment extends Fragment {
 
     private void mostrarDatos(Usuario usuario) {
         if (usuario.getNombre_usuario() != null) tvUsername.setText("@" + usuario.getNombre_usuario());
-        if (usuario.getNombre() != null) tvFullName.setText(usuario.getNombre());
-        if (usuario.getEmail() != null) tvEmail.setText(usuario.getEmail());
+        if (usuario.getNombre() != null) etNombre.setText(usuario.getNombre());
+        if (usuario.getApellido1() != null) etApellido1.setText(usuario.getApellido1());
+        if (usuario.getApellido2() != null) etApellido2.setText(usuario.getApellido2());
+        if (usuario.getTelefono() != null) etTelefono.setText(usuario.getTelefono());
+        if (usuario.getEmail() != null) etEmail.setText(usuario.getEmail());
         if (usuario.getDescripcion() != null && !usuario.getDescripcion().isEmpty()) {
             tvDescription.setText(usuario.getDescripcion());
         }

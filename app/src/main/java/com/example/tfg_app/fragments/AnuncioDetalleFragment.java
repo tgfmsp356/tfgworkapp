@@ -1,5 +1,7 @@
 package com.example.tfg_app.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,12 @@ public class AnuncioDetalleFragment extends Fragment {
     private ViewPager2 vpImagenes;
     private TextView tvPrecio, tvTitulo, tvDescripcion, tvCategoria, tvUsuarioNombre;
     private Toolbar toolbar;
+    private com.google.android.material.button.MaterialButton btnContacto;
+
+    // Datos para el botón de contacto
+    private String emailDueno = null;
+    private String tituloAnuncio = null;
+
 
     /**
      * Forma recomendada de crear el fragment pasándole el ID del anuncio.
@@ -59,6 +67,9 @@ public class AnuncioDetalleFragment extends Fragment {
         tvUsuarioNombre = view.findViewById(R.id.tv_usuario_nombre);
         toolbar = view.findViewById(R.id.toolbar);
 
+        btnContacto = view.findViewById(R.id.btn_comprar);
+        btnContacto.setOnClickListener(v -> contactarVendedor());
+
         // Flecha de volver atrás
         toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
@@ -78,8 +89,12 @@ public class AnuncioDetalleFragment extends Fragment {
 
     private void cargarAnuncio(String anuncioId) {
         FirestoreHelper.getAnuncio(anuncioId).addOnSuccessListener(documentSnapshot -> {
+            android.util.Log.d("DETALLE_DEBUG", "anuncioId recibido = " + anuncioId);
+            android.util.Log.d("DETALLE_DEBUG", "exists = " + documentSnapshot.exists());
+            android.util.Log.d("DETALLE_DEBUG", "data = " + documentSnapshot.getData());
             if (documentSnapshot.exists()) {
                 Anuncio anuncio = documentSnapshot.toObject(Anuncio.class);
+                android.util.Log.d("DETALLE_DEBUG", "anuncio objeto = " + (anuncio == null ? "NULL" : anuncio.getTitulo() + " / " + anuncio.getPrecio_hora()));
                 if (anuncio != null) {
                     anuncio.setId(documentSnapshot.getId());
                     mostrarDatos(anuncio);
@@ -92,6 +107,8 @@ public class AnuncioDetalleFragment extends Fragment {
     }
 
     private void mostrarDatos(Anuncio anuncio) {
+        android.util.Log.d("DETALLE_DEBUG", "mostrarDatos ejecutado. tvTitulo null? " + (tvTitulo == null) + " tvPrecio null? " + (tvPrecio == null));
+
         tvTitulo.setText(anuncio.getTitulo());
         tvDescripcion.setText(anuncio.getDescripcion());
         tvPrecio.setText(String.format(Locale.getDefault(), "%.2f €", anuncio.getPrecio_hora()));
@@ -115,6 +132,7 @@ public class AnuncioDetalleFragment extends Fragment {
         }
         FirestoreHelper.getUsuario(idUsuario).addOnSuccessListener(doc -> {
             if (doc.exists()) {
+                emailDueno = doc.getString("email");
                 String nombre = doc.getString("nombre");
                 String nombreUsuario = doc.getString("nombre_usuario");
                 // Preferimos el nombre completo; si no hay, el nombre de usuario
@@ -144,5 +162,31 @@ public class AnuncioDetalleFragment extends Fragment {
                 tvCategoria.setText("Sin categoría");
             }
         }).addOnFailureListener(e -> tvCategoria.setText("Sin categoría"));
+    }
+
+    private void contactarVendedor() {
+        if (emailDueno == null || emailDueno.isEmpty()) {
+            Toast.makeText(getContext(), "No hay un correo de contacto disponible", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String asunto = "Interés en tu anuncio: " + (tituloAnuncio != null ? tituloAnuncio : "");
+        String cuerpo = "Hola,\n\n"
+                + "He visto tu anuncio"
+                + (tituloAnuncio != null ? " \"" + tituloAnuncio + "\"" : "")
+                + " y estoy interesado/a. ¿Podrías darme más información?\n\n"
+                + "Gracias.";
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{ emailDueno });
+        intent.putExtra(Intent.EXTRA_SUBJECT, asunto);
+        intent.putExtra(Intent.EXTRA_TEXT, cuerpo);
+
+        try {
+            startActivity(intent);
+        } catch (android.content.ActivityNotFoundException e) {
+            Toast.makeText(getContext(), "No hay ninguna app de correo instalada", Toast.LENGTH_SHORT).show();
+        }
     }
 }
