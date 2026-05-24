@@ -27,19 +27,4 @@ public class ImagenAnuncio {
         this.id = id;
     }
 
-    public String getAnuncio_id() {
-        return anuncio_id;
-    }
-
-    public void setAnuncio_id(String anuncio_id) {
-        this.anuncio_id = anuncio_id;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 }

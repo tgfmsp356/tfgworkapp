@@ -39,7 +39,4 @@ public class Categoria {
         return icono;
     }
 
-    public void setIcono(String icono) {
-        this.icono = icono;
-    }
 }
