@@ -186,7 +186,7 @@ public class SupportFragment extends Fragment {
 
         // Mensaje de bienvenida (local, sin llamar al backend)
         addItem(new ChatItem(TYPE_BOT,
-                "¡Hola! Soy el asistente de WorkApp. Puedo ayudarte a encontrar servicios freelance. ¿Qué necesitas?"));
+                "¡Hola! Soy el asistente de TechServe. Puedo ayudarte a encontrar servicios freelance. ¿Qué necesitas?"));
 
         btnSend.setOnClickListener(v -> sendMessage());
         etMessage.setOnEditorActionListener((v, actionId, event) -> {

@@ -18,7 +18,8 @@
         android:theme="@style/Theme.Tfg_app">
         <activity
             android:name=".activities.NavActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activities.RegisterActivity"
             android:exported="false" />
