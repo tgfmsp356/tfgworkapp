@@ -56,7 +56,7 @@ public class CreateFragment extends Fragment {
     private final List<String> urlsSubidas = new ArrayList<>();
     private int fotosSubidas = 0; // contador para saber cuándo terminan todas
 
-    // Selector de imágenes (permite varias)
+    // Selector de imágenes
     private final ActivityResultLauncher<Intent> pickImagesLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getResultCode() == android.app.Activity.RESULT_OK && result.getData() != null) {
@@ -90,13 +90,11 @@ public class CreateFragment extends Fragment {
         btnAddPhoto = view.findViewById(R.id.btn_add_photo);
         rvFotosPreview = view.findViewById(R.id.rv_fotos_preview);
 
-        // Spinner de categorías
         spinnerAdapter = new ArrayAdapter<>(requireContext(),
                 android.R.layout.simple_spinner_dropdown_item, new ArrayList<>());
         spCategoria.setAdapter(spinnerAdapter);
         cargarCategorias();
 
-        // RecyclerView de previsualización de fotos
         fotoAdapter = new FotoPreviewAdapter(fotosSeleccionadas, posicion -> {
             fotosSeleccionadas.remove(posicion);
             actualizarPreview();
@@ -105,7 +103,6 @@ public class CreateFragment extends Fragment {
                 new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rvFotosPreview.setAdapter(fotoAdapter);
 
-        // Botón de añadir fotos
         btnAddPhoto.setOnClickListener(v -> abrirGaleria());
 
         btnPublicar.setOnClickListener(v -> publicarAnuncio());
@@ -122,7 +119,7 @@ public class CreateFragment extends Fragment {
 
     private void actualizarPreview() {
         fotoAdapter.notifyDataSetChanged();
-        // Mostrar u ocultar el RecyclerView según haya fotos o no
+        // Mostrar / ocultar el RecyclerView según haya fotos o no
         if (fotosSeleccionadas.isEmpty()) {
             rvFotosPreview.setVisibility(View.GONE);
         } else {
@@ -210,7 +207,7 @@ public class CreateFragment extends Fragment {
                 public void onSuccess(String url) {
                     urlsSubidas.set(indice, url);
                     fotosSubidas++;
-                    // ¿Han terminado todas?
+                    // Han terminado todas?
                     if (fotosSubidas == fotosSeleccionadas.size()) {
                         // Quitar posibles nulos por si alguna falló
                         List<String> finales = new ArrayList<>();

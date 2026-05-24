@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
     private EditText etSearch;
     private ImageView ivFiltros;
 
-    // Categorías cargadas desde Firestore (para el desplegable de filtros)
+    // Categorias cargadas desde Firestore (para el desplegable de filtros)
     private final List<Categoria> listaCategorias = new ArrayList<>();
 
     // Estado de los filtros actualmente aplicados
@@ -82,7 +82,6 @@ public class HomeFragment extends Fragment {
 
         adapter.setOnAnuncioClickListener(anuncio -> abrirDetalle(anuncio));
 
-        // Filtrado en vivo mientras se escribe
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -91,10 +90,9 @@ public class HomeFragment extends Fragment {
             @Override public void afterTextChanged(Editable s) {}
         });
 
-        // Botón de filtros
         ivFiltros.setOnClickListener(v -> mostrarDialogoFiltros());
 
-        // Si venimos desde ServicesFragment con una categoría preseleccionada
+        // Si venimos desde ServicesFragment con una categoria preseleccionada
         if (getArguments() != null) {
             filtroCategoriaId = getArguments().getString(ARG_CATEGORIA_ID, null);
         }
@@ -107,7 +105,7 @@ public class HomeFragment extends Fragment {
         AnuncioDetalleFragment detalle = AnuncioDetalleFragment.newInstance(anuncio.getId());
         getParentFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, detalle)
-                .addToBackStack(null)   // permite volver atrás con el botón de retroceso
+                .addToBackStack(null)   // permite volver atras con el botón de retroceso
                 .commit();
     }
 
@@ -159,9 +157,9 @@ public class HomeFragment extends Fragment {
         }).addOnFailureListener(e -> Toast.makeText(getContext(), "Error al cargar anuncios", Toast.LENGTH_SHORT).show());
     }
 
-    /**
-     * Llama al adapter con el texto del buscador + los filtros del diálogo.
-     */
+
+     //llamada  al adapter con el texto del buscador + los filtros que quiere aplicar.
+
     private void aplicarTodosLosFiltros() {
         adapter.aplicarFiltros(
                 etSearch.getText().toString(),

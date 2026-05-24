@@ -32,15 +32,13 @@ public class ServicesFragment extends Fragment {
 
         rvCategorias = view.findViewById(R.id.rv_categorias);
         listaCategorias = new ArrayList<>();
-        
-        // Configurar el RecyclerView con un Grid de 2 columnas
         adapter = new CategoriaAdapter(listaCategorias, categoria -> {
             // Abrir HomeFragment ya filtrado por esta categoría.
-            // OJO: no tocamos la selección del bottom nav, así "Services" sigue marcado.
+
             HomeFragment home = HomeFragment.newInstance(categoria.getId());
             getParentFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, home)
-                    .addToBackStack(null)   // permite volver a la lista de categorías con el botón atrás
+                    .addToBackStack(null)   // permite volver a la lista de categorias con el botón atrás
                     .commit();
         });
 

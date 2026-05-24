@@ -113,7 +113,6 @@ public class ProfileFragment extends Fragment {
             return;
         }
 
-        // Guardar los cuatro campos a la vez en Firestore
         java.util.Map<String, Object> datos = new java.util.HashMap<>();
         datos.put("nombre", nombre);
         datos.put("apellido1", apellido1);
@@ -169,7 +168,6 @@ public class ProfileFragment extends Fragment {
 
         FirestoreHelper.updateUsuarioField(user.getUid(), "descripcion", descripcion)
                 .addOnSuccessListener(aVoid -> {
-                    // Actualizar el TextView inmediatamente
                     if (descripcion.isEmpty()) {
                         tvDescription.setText("Sin descripción disponible.");
                     } else {

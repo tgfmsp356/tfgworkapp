@@ -37,10 +37,7 @@ public class AnuncioDetalleFragment extends Fragment {
     private String emailDueno = null;
     private String tituloAnuncio = null;
 
-
-    /**
-     * Forma recomendada de crear el fragment pasándole el ID del anuncio.
-     */
+    //creacion del fragment por id de anuncio
     public static AnuncioDetalleFragment newInstance(String anuncioId) {
         AnuncioDetalleFragment fragment = new AnuncioDetalleFragment();
         Bundle args = new Bundle();
@@ -70,10 +67,8 @@ public class AnuncioDetalleFragment extends Fragment {
         btnContacto = view.findViewById(R.id.btn_comprar);
         btnContacto.setOnClickListener(v -> contactarVendedor());
 
-        // Flecha de volver atrás
         toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
-        // Recoger el ID del anuncio
         String anuncioId = null;
         if (getArguments() != null) {
             anuncioId = getArguments().getString(ARG_ANUNCIO_ID);
@@ -113,7 +108,6 @@ public class AnuncioDetalleFragment extends Fragment {
         tvDescripcion.setText(anuncio.getDescripcion());
         tvPrecio.setText(String.format(Locale.getDefault(), "%.2f €", anuncio.getPrecio_hora()));
 
-        // Carrusel de imágenes
         List<String> imagenes = anuncio.getImagenes();
         if (imagenes == null) {
             imagenes = new ArrayList<>();

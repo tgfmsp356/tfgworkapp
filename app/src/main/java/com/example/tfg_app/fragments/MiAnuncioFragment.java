@@ -54,7 +54,6 @@ public class MiAnuncioFragment extends Fragment {
         progress = view.findViewById(R.id.progress_mis_anuncios);
         toolbar = view.findViewById(R.id.toolbar_mis_anuncios);
 
-        // Flecha de volver atrás
         toolbar.setNavigationOnClickListener(v -> getParentFragmentManager().popBackStack());
 
         // Lista en cuadrícula de 2 columnas (igual que el Home)
@@ -62,7 +61,6 @@ public class MiAnuncioFragment extends Fragment {
         adapter = new MiAnuncioAdapter(listaAnuncios);
         rvMiAnuncio.setAdapter(adapter);
 
-        // Al pulsar una tarjeta -> abrir el detalle
         adapter.setOnAnuncioClickListener(anuncio -> {
             AnuncioDetalleFragment detalle = AnuncioDetalleFragment.newInstance(anuncio.getId());
             getParentFragmentManager().beginTransaction()
@@ -71,7 +69,7 @@ public class MiAnuncioFragment extends Fragment {
                     .commit();
         });
 
-        // Al pulsar la papelera -> confirmar y borrar
+        // confirmar y borrar
         adapter.setOnAnuncioBorrarListener(this::confirmarBorrado);
 
         cargarMiAnuncio();
