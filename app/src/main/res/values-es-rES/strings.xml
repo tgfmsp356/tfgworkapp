@@ -115,7 +115,6 @@
     <string name="hint_apellido1">Tu primer apellido</string>
     <string name="hint_apellido2">Tu segundo apellido (opcional)</string>
     <string name="hint_telefono">Tu número de teléfono</string>
-    <string name="hint_password_stars">*******</string>
     <string name="hint_precio_min">Mín</string>
     <string name="hint_precio_max">Máx</string>
     <string name="hint_titulo">Título del anuncio</string>

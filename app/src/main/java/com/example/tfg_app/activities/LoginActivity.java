@@ -1,6 +1,9 @@
 package com.example.tfg_app.activities;
 
+import static java.security.AccessController.getContext;
+
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -18,8 +21,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etMail;
     private EditText etPasswd;
     private MaterialButton btnLogin;
-    private TextView tvRegister;
+    private TextView tvRegister, tvForgot;
     private FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +36,37 @@ public class LoginActivity extends AppCompatActivity {
         tvRegister = findViewById(R.id.tv_register_link);
         etMail = findViewById(R.id.et_email);
         etPasswd = findViewById(R.id.et_password);
+        tvForgot = findViewById(R.id.tv_forgot_password);
 
 
         // Acceder al Panel
         btnLogin.setOnClickListener(v -> iniciarSesion());
 
-        //tvForgot.setOnClickListener(v -> recuperarPasswd());
+        tvForgot.setOnClickListener(v -> recuperarPasswd());
         tvRegister.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
+    }
+
+    private void recuperarPasswd() {
+        String asunto = "He olvidado mi contraseña";
+        String cuerpo = "Hola,\n\n"
+                + "He olvidado mi contraseña de acceso a la app"
+                + " ¿Podrías darme otra o reestablecerla?\n\n"
+                + "Gracias.";
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{ "tgfmsp356@gmail.com" });
+        intent.putExtra(Intent.EXTRA_SUBJECT, asunto);
+        intent.putExtra(Intent.EXTRA_TEXT, cuerpo);
+
+        try {
+            startActivity(intent);
+        } catch (android.content.ActivityNotFoundException e) {
+            Toast.makeText(this, "No hay ninguna app de correo instalada", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

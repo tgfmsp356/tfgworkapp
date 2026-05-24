@@ -115,7 +115,6 @@
     <string name="hint_apellido1">Your first surname</string>
     <string name="hint_apellido2">Your second surname (optional)</string>
     <string name="hint_telefono">Your phone number</string>
-    <string name="hint_password_stars">*******</string>
     <string name="hint_precio_min">Min</string>
     <string name="hint_precio_max">Max</string>
     <string name="hint_titulo">Listing title</string>
