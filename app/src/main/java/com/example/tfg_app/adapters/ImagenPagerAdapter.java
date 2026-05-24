@@ -24,7 +24,6 @@ public class ImagenPagerAdapter extends RecyclerView.Adapter<ImagenPagerAdapter.
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Creamos un ImageView que ocupe todo el espacio
         ImageView iv = new ImageView(parent.getContext());
         iv.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,

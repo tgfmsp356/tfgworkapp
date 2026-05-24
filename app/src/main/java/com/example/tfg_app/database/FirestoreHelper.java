@@ -26,21 +26,11 @@ public class FirestoreHelper {
         return getDb().collection("anuncios").document(id).get();
     }
 
-    public static Task<DocumentSnapshot> getFavorito(String id) {
-        return getDb().collection("favoritos").document(id).get();
-    }
 
     public static Task<DocumentSnapshot> getCategoria(String id) {
         return getDb().collection("categorias").document(id).get();
     }
 
-    public static Task<DocumentSnapshot> getValoracion(String id) {
-        return getDb().collection("valoraciones").document(id).get();
-    }
-
-    public static Task<DocumentSnapshot> getImagenAnuncio(String id) {
-        return getDb().collection("imagenes_anuncio").document(id).get();
-    }
 
     public static Task<QuerySnapshot> getAnuncios() {
         return getDb().collection("anuncios").get();

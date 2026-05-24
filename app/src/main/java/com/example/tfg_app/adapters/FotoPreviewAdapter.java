@@ -42,7 +42,6 @@ public class FotoPreviewAdapter extends RecyclerView.Adapter<FotoPreviewAdapter.
     public void onBindViewHolder(@NonNull VH h, int position) {
         Uri uri = fotos.get(position);
 
-        // Mostrar la imagen con Glide
         Glide.with(h.ivFoto.getContext()).load(uri).into(h.ivFoto);
 
         // La primera foto es la portada
@@ -52,7 +51,6 @@ public class FotoPreviewAdapter extends RecyclerView.Adapter<FotoPreviewAdapter.
             h.tvPortada.setVisibility(View.GONE);
         }
 
-        // Botón de quitar
         h.ivQuitar.setOnClickListener(view -> {
             if (listener != null) {
                 listener.onQuitar(h.getAdapterPosition());

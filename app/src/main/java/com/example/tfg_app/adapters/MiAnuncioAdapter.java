@@ -104,14 +104,12 @@ public class MiAnuncioAdapter extends RecyclerView.Adapter<MiAnuncioAdapter.MiAn
             holder.tvCategoria.setText("Sin categoría");
         }
 
-        // Clic en la tarjeta -> abrir detalle
         holder.itemView.setOnClickListener(v -> {
             if (clickListener != null) {
                 clickListener.onAnuncioClick(anuncio);
             }
         });
 
-        // Clic en la papelera -> borrar
         holder.btnBorrar.setOnClickListener(v -> {
             if (borrarListener != null) {
                 borrarListener.onAnuncioBorrar(anuncio);

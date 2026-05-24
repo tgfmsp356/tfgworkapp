@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tfg_app.R;
+import com.example.tfg_app.adapters.ServiceCardAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

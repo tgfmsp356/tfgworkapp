@@ -1,4 +1,4 @@
-package com.example.tfg_app.ChatBot;
+package com.example.tfg_app.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.tfg_app.ChatBot.AgentApiClient;
 import com.example.tfg_app.R;
 
 import java.util.List;

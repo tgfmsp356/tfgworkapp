@@ -114,10 +114,9 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioV
         return listaFiltrada.size();
     }
 
-    /**
-     * Filtra la lista por título según el texto introducido.
-     * Si el texto está vacío, muestra todos los anuncios.
-     */
+
+     //Filtra la lista por el titulo segun el texto q se introduce
+
     public void filtrar(String texto) {
         listaFiltrada.clear();
         if (texto == null || texto.trim().isEmpty()) {
@@ -134,10 +133,9 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioV
         notifyDataSetChanged();
     }
 
-    /**
-     * Llamar cuando se recargan los anuncios desde Firestore,
-     * para mantener sincronizadas ambas listas.
-     */
+
+     //Llamar cuando se recargan los anuncios desde Firestore
+     //para mantener sincronizadas ambas listas
     public void actualizarLista(List<Anuncio> nuevaLista) {
         this.listaCompleta = new ArrayList<>(nuevaLista);
         this.listaFiltrada = new ArrayList<>(nuevaLista);
@@ -158,20 +156,14 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioV
         }
     }
 
-    // Constantes para el criterio de ordenación
+    // Constantes para el criterio de ordenacion
     public static final int ORDEN_RECIENTES   = 0;
     public static final int ORDEN_PRECIO_ASC   = 1;
     public static final int ORDEN_PRECIO_DESC  = 2;
 
-    /**
-     * Aplica todos los filtros a la vez sobre la lista completa.
-     *
-     * @param texto       Texto de búsqueda por título (puede ser null/vacío).
-     * @param categoriaId ID de categoría a filtrar (null = todas).
-     * @param precioMin   Precio mínimo (null = sin mínimo).
-     * @param precioMax   Precio máximo (null = sin máximo).
-     * @param orden       Criterio de ordenación (ver constantes ORDEN_*).
-     */
+
+      //Aplica todos los filtros a la vez sobre la lista completa
+
     public void aplicarFiltros(String texto, String categoriaId,
                                Double precioMin, Double precioMax, int orden) {
         listaFiltrada.clear();
