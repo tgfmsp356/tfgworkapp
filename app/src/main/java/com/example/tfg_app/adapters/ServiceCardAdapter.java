@@ -82,7 +82,6 @@ public class ServiceCardAdapter extends RecyclerView.Adapter<ServiceCardAdapter.
             tvUsuario   = v.findViewById(R.id.tv_service_user);
             tvEntrega   = v.findViewById(R.id.tv_service_delivery);
             tvValoracion = v.findViewById(R.id.tv_service_rating);
-            ratingBar   = v.findViewById(R.id.rating_bar);
         }
     }
 }
